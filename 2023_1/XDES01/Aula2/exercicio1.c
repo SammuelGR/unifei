@@ -1,19 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    printf("Por mim se vai das dores à morada,\n");
+    printf("Por mim se vai das dores a morada,\n");
     printf("Por mim se vai ao padecer eterno,\n");
-    printf("Por mim se vai à gente condenada.\n");
+    printf("Por mim se vai a gente condenada.\n");
     printf("\n");
 
     printf("Moveu Justiça o Autor meu sempiterno,\n");
-    printf("Formado fui por divinal possança,\n");
+    printf("Formado fui por divinal possanca,\n");
     printf("Sabedoria suma e amor supremo.\n");
     printf("\n");
 
-    printf("No existir, ser nenhum a mim se avança,\n");
-    printf("Não sendo eterno, e eu eternal perduro:\n");
-    printf("Deixai, ó vós que entrais, toda a esperança!\n");
+    printf("No existir, ser nenhum a mim se avanca,\n");
+    printf("Nao sendo eterno, e eu eternal perduro:\n");
+    printf("Deixai, o vos que entrais, toda a esperanca!\n");
     printf("\n");
 
     printf("Estas palavras, em letreiro escuro,\n");
