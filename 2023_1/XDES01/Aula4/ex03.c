@@ -1,9 +1,10 @@
 #include <stdio.h>
 
 int main() {
-    int childWeight = 0, result = 0;
+    int result = 0;
+    float childWeight = 0.0;
 
-    scanf("%d", &childWeight);
+    scanf("%f", &childWeight);
 
     result = (childWeight / 2) * 5;
 
