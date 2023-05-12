@@ -3,7 +3,6 @@
 int main() {
     int userNumber = 0;
 
-    printf("Digite um numero inteiro: \n");
     scanf("%d", &userNumber);
 
     if (userNumber % 2 == 0) {

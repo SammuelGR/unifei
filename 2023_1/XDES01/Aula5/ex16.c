@@ -6,8 +6,6 @@ int main() {
 
     scanf("%f %c", &height, &gender);
 
-    printf("%f\n", height);
-
     switch (gender) {
         case 'f':
         case 'F':

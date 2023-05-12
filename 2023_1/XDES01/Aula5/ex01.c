@@ -1,12 +1,11 @@
 #include <stdio.h>
 
 int main() {
-    float a = 0.0, b = 0.0;
+    int a = 0, b = 0;
 
-    printf("Digite dois numeros:\n");
-    scanf("%f %f", &a, &b);
+    scanf("%d %d", &a, &b);
 
-    printf("O menor numero eh %f\n", a < b ? a : b);
+    printf("%d\n", a < b ? a : b);
 
     return 0;
 }
