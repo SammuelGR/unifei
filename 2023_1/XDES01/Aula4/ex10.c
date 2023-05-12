@@ -3,7 +3,6 @@
 int main() {
     int piecesAmount = 0, hours = 0, minutes = 0, seconds = 0, totalSeconds = 0;
 
-    printf("Digite a quantidade de pecas que serao produzidas: ");
     scanf("%d", &piecesAmount);
 
     totalSeconds = piecesAmount * 17;
