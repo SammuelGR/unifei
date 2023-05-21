@@ -5,7 +5,7 @@ int main() {
 
     scanf("%f %f %f %f", &ballDiameter, &height, &width, &depth);
 
-    if (ballDiameter <= height && ballDiameter <= width && ballDiameter <= depth) {
+    if (ballDiameter < height && ballDiameter < width && ballDiameter < depth) {
         printf("sim\n");
     } else {
         printf("nao\n");
