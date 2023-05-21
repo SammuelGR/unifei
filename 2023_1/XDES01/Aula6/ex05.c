@@ -5,7 +5,7 @@ int main() {
 
     scanf("%d %d", &N, &X);
 
-    for (i = 0; i < N; i++) {
+    for (i = 1; i <= N; i++) {
         printf("%d ", X * i);
     }
 
