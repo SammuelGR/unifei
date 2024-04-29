@@ -3,22 +3,22 @@
 #include <stdio.h>
 
 int main() {
-	int numbers[SIZE], i, j, counter = 0;
+	int numbers[SIZE], i, X;
 
 	for (i = 0; i < SIZE; i++) {
 		scanf("%d", &numbers[i]);
 	}
 
-	for (i = 0; i < SIZE; i++) {
-		counter = 0;
-		for (j = i; j >= 0; j--) {
-			if (i != j && numbers[i] == numbers[j]) counter++;
-		}
+	scanf("%d", &X);
 
-		if (counter == 0) {
+	for (i = 0; i < SIZE; i++) {
+
+		if (numbers[i] % X == 0) {
 			printf("%d ", numbers[i]);
 		}
 	}
+
+	printf("\n");
 
 	return 0;
 }
