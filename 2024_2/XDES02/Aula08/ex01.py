@@ -66,4 +66,3 @@ print()
 lanceta.enchePortaMalas()
 lanceta.ligaMotor()
 lanceta.mostraAtributos()
-
