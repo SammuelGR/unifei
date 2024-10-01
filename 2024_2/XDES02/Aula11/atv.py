@@ -110,7 +110,7 @@ class ContaPoupanca(Conta):
 		print(f'Dia aniversario: {self.__diaAniversario}')
 
 class ContaCorrente(Conta):
-	def __init__(self, numeroConta: int, nomeCliente: str, saldo: floa, mensalidade: float) -> None:
+	def __init__(self, numeroConta: int, nomeCliente: str, saldo: float, mensalidade: float) -> None:
 		super().__init__(numeroConta, nomeCliente, saldo)
 		self.__mensalidade = mensalidade
 
