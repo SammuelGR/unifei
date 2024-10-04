@@ -38,7 +38,10 @@ char desempilhar(pilha P) {
 }
 
 int pilha_vazia(pilha P) {
-	return P != NULL && P->topo != NULL;
+	if (P == NULL || P->topo == NULL) return 1;
+
+	return 0;
+	// return P != NULL && P->topo != NULL;
 }
 
 void liberar_lista_elementos(elemento *e) {
