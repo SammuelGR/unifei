@@ -4,3 +4,5 @@
 .vscode
 
 *.csv
+
+test_case_output.out
