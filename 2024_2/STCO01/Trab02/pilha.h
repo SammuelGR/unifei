@@ -1,8 +1,8 @@
 //Definicao do tipo pilha
-typedef struct tpilha * pilha;
+typedef struct tpilha *pilha;
 
 //Cria uma pilha vazia
-pilha cria_pilha();
+pilha cria_pilha(void);
 
 //Recebe uma pilha e um inteiro
 void empilhar(pilha P, int c);
