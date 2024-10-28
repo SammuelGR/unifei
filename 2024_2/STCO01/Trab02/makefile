@@ -14,7 +14,7 @@ run:
 	$(OUTPUT_DIR)n_queens_pilha.exe
 
 clean:
-	rm $(OUTPUT_DIR)*.o $(OUTPUT_DIR)*.exe $(OUTPUT_DIR)*.out
+	rm -f $(OUTPUT_DIR)*.o $(OUTPUT_DIR)*.exe $(OUTPUT_DIR)*.out
 
 rebuild: clean build run
 
