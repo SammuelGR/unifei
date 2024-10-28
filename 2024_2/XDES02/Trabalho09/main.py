@@ -87,7 +87,6 @@ class Aluno(Pessoa):
 	def printDescricao():
 		pass # TODO: implement
 
-
 if __name__ == "__main__":
 	exemploAlunos = [
 		("Aluno 1", "1111", "Rua de Cima", 18, "SIN"), # ✅
@@ -104,12 +103,24 @@ if __name__ == "__main__":
 		("Professor 4", "7777", "Rua de Baixo", 30, "Doutor"), # ❌ cpf duplicado
 	]
 
-	pessoas = exemploAlunos + exemploProfessores
 
 	cadastro = {}
 
-	print("exemplo alunos: ", exemploAlunos, end='\n\n')
-	print("exemplo professores: ", exemploProfessores, end='\n\n')
-	print("todos: ", pessoas, end='\n\n')
+	for nome, cpf, endereco, idade, titulacao in exemploProfessores:
+		try:
+			if idade < 30:
+				raise IdadeMenorQuePermitida(30)
+			if titulacao.lower() != 'doutor':
+				raise TitulacaoInvalida()
+
+
+		except:
+			pass
+		else:
+			pass
+
+	print("exemplo alunos: ", exemploAlunos, end='\n\n') # TODO: remove
+	print("exemplo professores: ", exemploProfessores, end='\n\n') # TODO: remove
+	print("todos: ", pessoas, end='\n\n') # TODO: remove
 
 
