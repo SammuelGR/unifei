@@ -3,29 +3,46 @@
 #include "pilha.h"
 
 void print_table(pilha p, int n) {
+	int i, j = n;
+
+	while (j--) {
+		int c = desempilhar(p);
+
+		for (i = 0; i < n; i++)
+			if (c == i)
+				printf("R ");
+			else
+				printf("_ ");
+
+		printf("\n");
+	}
+
+	printf("\n");
+}
+
+void solveStack(pilha p, int n) {
 	int i, j;
+
+	pilha copy = cria_pilha();
 
 	for (i = 0; i < n; i++) {
 		for (j = 0; j < n; j++) {
-			if (desempilhar(p) == j)
-				printf("R ");
-			else printf("_ ");
+			int c = pilha_vazia(p) ? 0 : desempilhar(p);
+			empilhar(copy, c);
+
+			int canKill = c == j && !pilha_vazia(p);
+
+			if (!canKill) {
+				while (!pilha_vazia(copy)) empilhar(p, desempilhar(copy));
+
+				empilhar(p, c);
+				empilhar(p, j);
+				break;
+			}
 		}
-
-		printf("\n");
-	}
-}
-
-pilha solve(pilha p, int n, int current) {
-
-	if (n == current) {
-		print_table(p, n);
-		printf("\n");
-
-		return;
 	}
 
-	return p;
+	print_table(p, n);
 }
 
 int main(void) {
@@ -35,7 +52,7 @@ int main(void) {
 
 	scanf("%d", &n);
 
-	solve(p, n, 0);
+	solveStack(p, n);
 
 	libera_pilha(p);
 
