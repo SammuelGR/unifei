@@ -52,8 +52,8 @@ class Pessoa(ABC):
 		self.idade = value
 
 	@abstractmethod
-	def printDescricao() -> None:
-		pass
+	def printDescricao(self) -> None:
+		print(f'nome: {nome}, CPF: {cpf}, endereço: {endereco}, idade: {idade} - cadastrado com sucesso!')
 
 class Professor(Pessoa):
 	def __init__(self, nome, cpf, endereco, idade, titulacao: str):
@@ -68,8 +68,9 @@ class Professor(Pessoa):
 	def titulacao(self, value):
 		self.titulacao = value
 
-	def printDescricao():
-		pass # TODO: implement
+	def printDescricao(self):
+		print(f'✅ Professor, titulação: {self.titulacao},', end=' ')
+		super().printDescricao()
 
 class Aluno(Pessoa):
 	def __init__(self, nome, cpf, endereco, idade, curso: str):
@@ -84,43 +85,61 @@ class Aluno(Pessoa):
 	def curso(self, value):
 		self.curso = value
 
-	def printDescricao():
-		pass # TODO: implement
+	def printDescricao(self):
+		print(f'✅ Aluno, curso: {self.curso},', end=' ')
+		super().printDescricao()
 
 if __name__ == "__main__":
-	exemploAlunos = [
-		("Aluno 1", "1111", "Rua de Cima", 18, "SIN"), # ✅
-		("Aluno 2", "2222", "Rua de Cima", 18, "CCO"), # ✅
-		("Aluno 3", "3333", "Rua de Cima", 15, "SIN"), # ❌ idade invalida
-		("Aluno 4", "4444", "Rua de Cima", 18, "ECO"), # ❌ curso invalido
-		("Aluno 5", "1111", "Rua de Cima", 18, "CCO"), # ❌ cpf duplicado
-	]
-
 	exemploProfessores = [
-		("Professor 1", "5555", "Rua de Baixo", 30, "Doutor"), # ✅
-		("Professor 2", "6666", "Rua de Baixo", 29, "Doutor"), # ❌ idade invalida
-		("Professor 3", "7777", "Rua de Baixo", 30, "Espone"), # ❌ titulacao invalida
-		("Professor 4", "7777", "Rua de Baixo", 30, "Doutor"), # ❌ cpf duplicado
+		("Hokama P", "91825688044", "Avenida de Cima", 30, "Doutor"), # ✅
+		("Adler D", "15375480000", "Avenida do Lado", 29, "Doutor"), # ❌ idade invalida
+		("Fabiano L", "21783873060", "Avenida de Baixo", 30, "Mestre"), # ❌ titulacao invalida
+		("Claudino R", "91825688044", "Avenida Logo Ali", 30, "Doutor"), # ❌ cpf duplicado
+		("Baldochi L", "19856646073", "Rua de Baixo", 35, "Doutor"), # ✅
 	]
 
+	exemploAlunos = [
+		("Sammuel R", "02128543053", "Rua de Cima", 18, "SIN"), # ✅
+		("Nathan A", "32789912068", "Rua do Lado", 18, "CCO"), # ✅
+		("Pedro L", "50575832045", "Rua de Baixo", 15, "SIN"), # ❌ idade invalida
+		("Renan S", "44640024045", "Rua do Outro Lado", 18, "ECO"), # ❌ curso invalido
+		("Lucas G", "02128543053", "Rua Longe", 18, "CCO"), # ❌ cpf duplicado
+	]
 
 	cadastro = {}
 
 	for nome, cpf, endereco, idade, titulacao in exemploProfessores:
 		try:
-			if idade < 30:
-				raise IdadeMenorQuePermitida(30)
 			if titulacao.lower() != 'doutor':
 				raise TitulacaoInvalida()
-
-
-		except:
-			pass
+			if idade < 30:
+				raise IdadeMenorQuePermitida(30)
+			if cpf in cadastro:
+				raise DocumentoDuplicado()
+		except TitulacaoInvalida:
+			print(f'❌ Titulação "{titulacao}" inválida para professor')
+		except IdadeMenorQuePermitida as e:
+			print(f'❌ A idade mínima é {e.args[0]} para professor')
+		except DocumentoDuplicado:
+			print(f'❌ CPF {cpf} já está em uso por outra pessoa')
 		else:
-			pass
+			cadastro[cpf] = Professor(nome, cpf, endereco, idade, titulacao).printDescricao()
 
-	print("exemplo alunos: ", exemploAlunos, end='\n\n') # TODO: remove
-	print("exemplo professores: ", exemploProfessores, end='\n\n') # TODO: remove
-	print("todos: ", pessoas, end='\n\n') # TODO: remove
+	print()
 
-
+	for nome, cpf, endereco, idade, curso in exemploAlunos:
+		try:
+			if curso.lower() != 'cco' and curso.lower() != 'sin':
+				raise CursoInvalido()
+			if idade < 18:
+				raise IdadeMenorQuePermitida(18)
+			if cpf in cadastro:
+				raise DocumentoDuplicado()
+		except CursoInvalido:
+			print(f'❌ Curso "{curso}" inválido para aluno')
+		except IdadeMenorQuePermitida as e:
+			print(f'❌ A idade mínima é {e.args[0]} para aluno')
+		except DocumentoDuplicado:
+			print(f'❌ CPF {cpf} já está em uso por outra pessoa')
+		else:
+			cadastro[cpf] = Aluno(nome, cpf, endereco, idade, curso).printDescricao()
