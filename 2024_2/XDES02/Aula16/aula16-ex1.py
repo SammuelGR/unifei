@@ -42,6 +42,10 @@ class View():
 		self.buttonClear.pack(side="left")
 		self.buttonClear.bind("<Button>", controller.clearHandler)
 
+		self.buttonList = tk.Button(self.janela,text="Lista")
+		self.buttonList.pack(side="left")
+		self.buttonList.bind("<Button>", controller.listHandler)
+
 	def mostraJanela(self, titulo, mensagem):
 		messagebox.showinfo(titulo, mensagem)
 
@@ -70,6 +74,13 @@ class Controller():
 	def clearHandler(self, event):
 		self.view.inputText1.delete(0, len(self.view.inputText1.get()))
 		self.view.inputText2.delete(0, len(self.view.inputText2.get()))
+
+	def listHandler(self, event):
+		clientsText = ''
+		for cliente in self.listaClientes:
+			clientsText += cliente.nome + ' ' + cliente.email + '\n'
+
+		self.view.mostraJanela('Clientes cadastrados', clientsText)
 
 if __name__ == '__main__':
 	c = Controller()
