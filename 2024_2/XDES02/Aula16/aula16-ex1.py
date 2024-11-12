@@ -76,11 +76,11 @@ class Controller():
 		self.view.inputText2.delete(0, len(self.view.inputText2.get()))
 
 	def listHandler(self, event):
-		clientsText = ''
+		clientsStr = 'Nome  --  Email\n'
 		for cliente in self.listaClientes:
-			clientsText += cliente.nome + ' ' + cliente.email + '\n'
+			clientsStr += cliente.nome + '  --  ' + cliente.email + '\n'
 
-		self.view.mostraJanela('Clientes cadastrados', clientsText)
+		self.view.mostraJanela('Clientes cadastrados', clientsStr)
 
 if __name__ == '__main__':
 	c = Controller()
