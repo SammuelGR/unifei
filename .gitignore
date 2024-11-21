@@ -1,8 +1,15 @@
+# C/CPP
 *.exe
 *.o
 
+# VSCode
 .vscode
 
-*.csv
 
+
+# Python
+__pycache__
+
+# general
+*.csv
 test_case_output.out
