@@ -1,7 +1,10 @@
-from typing import List
+from typing import List, TYPE_CHECKING
 
-from artista import Artista
-from musica import Musica
+
+if TYPE_CHECKING:
+	from artista import Artista
+	from musica import Musica
+
 
 class Album:
 	def __init__(self, ano: int, titulo: str, artista: Artista) -> None:
@@ -16,7 +19,7 @@ class Album:
 
 	@ano.setter
 	def ano(self, value):
-		self.ano = value
+		self.__ano = value
 
 	@property
 	def titulo(self):
@@ -24,7 +27,7 @@ class Album:
 
 	@titulo.setter
 	def titulo(self, value):
-		self.titulo = value
+		self.__titulo = value
 
 	@property
 	def artista(self):
@@ -32,7 +35,7 @@ class Album:
 
 	@artista.setter
 	def artista(self, value):
-		self.artista = value
+		self.__artista = value
 
 	@property
 	def musicas(self):

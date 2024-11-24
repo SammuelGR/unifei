@@ -1,16 +1,17 @@
 import tkinter as tk
 from tkinter import messagebox
 
-from typing import List
+from typing import List, TYPE_CHECKING
 
-from album import Album
-from musica import Musica
+if TYPE_CHECKING:
+	from album import Album
+	from musica import Musica
 
 class Artista:
 	def __init__(self, nome: str) -> None:
 		self.__nome = nome
-		self.__albuns: List[Album] = []
-		self.__musicas = List[Musica] = []
+		self.__albuns: List["Album"] = []
+		self.__musicas: List["Musica"] = []
 
 	@property
 	def nome(self):
@@ -18,7 +19,7 @@ class Artista:
 
 	@nome.setter
 	def nome(self, value):
-		self.nome = value
+		self.__nome = value
 
 	@property
 	def albuns(self):
@@ -26,7 +27,7 @@ class Artista:
 
 	@albuns.setter
 	def albuns(self, value):
-		self.albuns = value
+		self.__albuns = value
 
 	@property
 	def musicas(self):
@@ -34,12 +35,12 @@ class Artista:
 
 	@musicas.setter
 	def musicas(self, value):
-		self.musicas = value
+		self.__musicas = value
 
-	def addAlbum(self, album: Album):
+	def addAlbum(self, album: "Album"):
 		self.albuns.append(album)
 
-	def addMusica(self, musica: Musica):
+	def addMusica(self, musica: "Musica"):
 		self.musicas.append(musica)
 
 class CtrlArtista:

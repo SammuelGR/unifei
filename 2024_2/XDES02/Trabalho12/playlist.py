@@ -1,6 +1,7 @@
-from typing import List
+from typing import List, TYPE_CHECKING
 
-from musica import Musica
+if TYPE_CHECKING:
+	from musica import Musica
 
 class Playlist:
 	def __init__(self, nome: str) -> None:
