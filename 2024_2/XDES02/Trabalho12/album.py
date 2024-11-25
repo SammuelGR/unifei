@@ -1,7 +1,7 @@
 from typing import List, TYPE_CHECKING
 
 import tkinter as tk
-from tkinter import messagebox, ttk
+from tkinter import messagebox, ttk, simpledialog
 
 import musica as mus
 
@@ -109,6 +109,15 @@ class LimiteInsereAlbum(tk.Toplevel):
 	def mostraJanela(self, titulo: str, msg: str):
 		messagebox.showinfo(titulo, msg)
 
+class LimiteConsultaAlbum:
+	def __init__(self, controle):
+		self.controle = controle
+
+	def mostraJanela(self, titulo, msg):
+		messagebox.showinfo(titulo, msg)
+
+	def mostraDialog(self, titulo, mensagem):
+		return simpledialog.askstring(titulo, mensagem)
 
 
 class CtrlAlbum:
@@ -130,6 +139,29 @@ class CtrlAlbum:
 	def listaArtistas(self, value):
 		self.__listaArtistas = value
 
+	def consultaAlbum(self):
+		self.limiteConsulta = LimiteConsultaAlbum(self)
+
+		buscaTitulo = self.limiteConsulta.mostraDialog('Consulta', 'Título: ')
+		albumBusca = None
+
+
+		for album in self.listaAlbuns:
+			if album.titulo == buscaTitulo:
+				albumBusca = album
+				break
+
+		if albumBusca != None:
+			descricao = 'Faixas:\n'
+
+			for faixa in albumBusca.musicas:
+				descricao += f'{faixa.nroFaixa} - {faixa.titulo}\n'
+
+			self.limiteConsulta.mostraJanela('Álbum encontrado',  descricao)
+		else:
+			self.limiteConsulta.mostraJanela('Não encontrado', \
+									'Álbum não encontrado')
+
 	def insereAlbum(self):
 		self.listaArtistas = self.controlePrincipal.ctrlArtista.listaArtistas
 		self.limiteIns = LimiteInsereAlbum(self, self.listaArtistas)
@@ -147,13 +179,16 @@ class CtrlAlbum:
 		titulo = self.limiteIns.inputTitulo.get()
 		nomeArtista = self.limiteIns.escolhaCombo.get()
 		artista = self.controlePrincipal.ctrlArtista.getArtista(nomeArtista)
-		ano = self.limiteIns.inputAno.get()
-		faixas = self.listaFaixas
+		ano = int(self.limiteIns.inputAno.get())
 		album = Album(ano, titulo, artista)
-		album.musicas.append(faixas)
+
+		for faixa in self.listaFaixas:
+			album.musicas.append(faixa)
 
 		self.listaAlbuns.append(album)
+
 		self.limiteIns.mostraJanela('Sucesso', 'Album cadastrado')
+		self.listaFaixas = []
 		self.fechaHandler(event)
 
 	def clearHandler(self, event):

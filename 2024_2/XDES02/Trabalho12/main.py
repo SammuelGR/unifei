@@ -25,8 +25,8 @@ class ControlePrincipal():
 	def insereAlbum(self):
 		self.ctrlAlbum.insereAlbum()
 
-	def consultaAlbum():
-		pass
+	def consultaAlbum(self):
+		self.ctrlAlbum.consultaAlbum()
 
 	def inserePlaylist():
 		pass
