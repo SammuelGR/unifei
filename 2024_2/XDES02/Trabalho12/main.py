@@ -2,12 +2,14 @@ from __future__ import annotations
 import tkinter as tk
 
 from artista import CtrlArtista
+from album import CtrlAlbum
 
 class ControlePrincipal():
 	def __init__(self):
 		self.root = tk.Tk()
 
 		self.ctrlArtista = CtrlArtista()
+		self.ctrlAlbum = CtrlAlbum(self)
 
 		self.limite = LimitePrincipal(self.root, self)
 
@@ -20,8 +22,8 @@ class ControlePrincipal():
 	def consultaArtista(self):
 		self.ctrlArtista.mostraArtista()
 
-	def insereAlbum():
-		pass
+	def insereAlbum(self):
+		self.ctrlAlbum.insereAlbum()
 
 	def consultaAlbum():
 		pass

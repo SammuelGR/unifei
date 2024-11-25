@@ -1,5 +1,9 @@
 from typing import List, TYPE_CHECKING
 
+import tkinter as tk
+from tkinter import messagebox, ttk
+
+import musica as mus
 
 if TYPE_CHECKING:
 	from artista import Artista
@@ -7,7 +11,7 @@ if TYPE_CHECKING:
 
 
 class Album:
-	def __init__(self, ano: int, titulo: str, artista: Artista) -> None:
+	def __init__(self, ano: int, titulo: str, artista: 'Artista') -> None:
 		self.__ano = ano
 		self.__titulo = titulo
 		self.__artista = artista
@@ -44,3 +48,119 @@ class Album:
 	@musicas.setter
 	def musicas(self, value):
 		self.musicas = value
+
+class LimiteInsereAlbum(tk.Toplevel):
+	def __init__(self, controle: 'CtrlAlbum', listaArtistas: List['Artista']):
+		tk.Toplevel.__init__(self)
+		self.geometry('250x200')
+		self.title('Album')
+		self.controle = controle
+
+		self.frameTitulo = tk.Frame(self)
+		self.frameArtista = tk.Frame(self)
+		self.frameAno = tk.Frame(self)
+		self.frameFaixas = tk.Frame(self)
+		self.frameButton = tk.Frame(self)
+		self.frameTitulo.pack()
+		self.frameArtista.pack()
+		self.frameAno.pack()
+		self.frameFaixas.pack()
+		self.frameButton.pack()
+
+		self.labelTitulo = tk.Label(self.frameTitulo, text='Título: ')
+		self.labelTitulo.pack(side='left')
+		self.inputTitulo = tk.Entry(self.frameTitulo, width=20)
+		self.inputTitulo.pack(side='left')
+
+		self.labelArtista = tk.Label(self.frameArtista, text='Artista: ')
+		self.labelArtista.pack(side='left')
+		self.escolhaCombo = tk.StringVar()
+		self.combobox = ttk.Combobox(self.frameArtista, width=15, textvariable=self.escolhaCombo)
+		self.combobox.pack(side='left')
+		self.combobox['values'] = [artista.nome for artista in listaArtistas]
+
+		self.labelAno = tk.Label(self.frameAno, text='Ano: ')
+		self.labelAno.pack(side='left')
+		self.inputAno = tk.Entry(self.frameAno, width=20)
+		self.inputAno.pack(side='left')
+
+		self.labelFaixas = tk.Label(self.frameFaixas, text='Faixas: ')
+		self.labelFaixas.pack(side='left')
+		self.inputFaixa = tk.Entry(self.frameFaixas, width=20)
+		self.inputFaixa.pack(side='left')
+
+		self.buttonInsereFaixa = tk.Button(self.frameFaixas, text='Insere faixa')
+		self.buttonInsereFaixa.pack(side='top')
+		self.buttonInsereFaixa.bind('<Button>', controle.insereFaixa)
+
+
+		self.buttonSubmit = tk.Button(self.frameButton, text='Enter')
+		self.buttonSubmit.pack(side='left')
+		self.buttonSubmit.bind('<Button>', controle.enterHandler)
+
+		self.buttonClear = tk.Button(self.frameButton, text='Clear')
+		self.buttonClear.pack(side='left')
+		self.buttonClear.bind('<Button>', controle.clearHandler)
+
+		self.buttonFecha = tk.Button(self.frameButton, text='Concluído')
+		self.buttonFecha.pack(side='left')
+		self.buttonFecha.bind('<Button>', self.controle.fechaHandler)
+
+	def mostraJanela(self, titulo: str, msg: str):
+		messagebox.showinfo(titulo, msg)
+
+
+
+class CtrlAlbum:
+	def __init__(self, controlePrincipal) -> None:
+		self.controlePrincipal = controlePrincipal
+		self.__listaAlbuns: List[Album] = []
+		self.__listaArtistas: List['Artista'] = []
+		self.listaFaixas: List['Musica'] = []
+
+	@property
+	def listaAlbuns(self):
+		return self.__listaAlbuns
+
+	@property
+	def listaArtistas(self):
+		return self.__listaArtistas
+
+	@listaArtistas.setter
+	def listaArtistas(self, value):
+		self.__listaArtistas = value
+
+	def insereAlbum(self):
+		self.listaArtistas = self.controlePrincipal.ctrlArtista.listaArtistas
+		self.limiteIns = LimiteInsereAlbum(self, self.listaArtistas)
+
+	def insereFaixa(self, event):
+		tituloFaixa = self.limiteIns.inputFaixa.get()
+		nomeArtista = self.limiteIns.escolhaCombo.get()
+		artista = self.controlePrincipal.ctrlArtista.getArtista(nomeArtista)
+		faixa = mus.Musica(len(self.listaFaixas) + 1, tituloFaixa, artista)
+		self.listaFaixas.append(faixa)
+		self.limiteIns.mostraJanela('Sucesso', 'Faixa adicionada')
+		self.limiteIns.inputFaixa.delete(0, len(self.limiteIns.inputFaixa.get()))
+
+	def enterHandler(self, event):
+		titulo = self.limiteIns.inputTitulo.get()
+		nomeArtista = self.limiteIns.escolhaCombo.get()
+		artista = self.controlePrincipal.ctrlArtista.getArtista(nomeArtista)
+		ano = self.limiteIns.inputAno.get()
+		faixas = self.listaFaixas
+		album = Album(ano, titulo, artista)
+		album.musicas.append(faixas)
+
+		self.listaAlbuns.append(album)
+		self.limiteIns.mostraJanela('Sucesso', 'Album cadastrado')
+		self.fechaHandler(event)
+
+	def clearHandler(self, event):
+		self.limiteIns.inputTitulo.delete(0, len(self.limiteIns.inputTitulo.get()))
+		self.limiteIns.escolhaCombo.set('')
+		self.limiteIns.inputAno.delete(0, len(self.limiteIns.inputAno.get()))
+		self.limiteIns.inputFaixa.delete(0, len(self.limiteIns.inputFaixa.get()))
+
+	def fechaHandler(self, event):
+		self.limiteIns.destroy()
