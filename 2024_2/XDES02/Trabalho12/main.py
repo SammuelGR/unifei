@@ -34,8 +34,7 @@ class ControlePrincipal():
 		self.ctrlPlaylist.inserePlaylist()
 
 	def consultaPlaylist(self):
-		print(self.ctrlPlaylist.listaPlaylists)
-		# TODO: remove
+		self.ctrlPlaylist.consultaPlaylist()
 
 	def sair(self):
 		self.root.destroy()

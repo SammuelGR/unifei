@@ -56,6 +56,29 @@ class CtrlPlaylist:
 	def listaMusicasAdicionadas(self):
 		return self.__listaMusicasAdicionadas
 
+	def consultaPlaylist(self):
+		self.limiteConsulta = LimiteConsultaPlaylist(self)
+
+		buscaNome = self.limiteConsulta.mostraDialog('Consulta', \
+											   'Nome da playlist: ')
+		playlistBusca = None
+
+		for playlist in self.listaPlaylists:
+			if playlist.nome == buscaNome:
+				playlistBusca = playlist
+				break
+
+
+		if playlistBusca != None:
+			descricao = 'Músicas:\n'
+			for musica in playlistBusca.musicas:
+				descricao += f'{musica}\n'
+
+			self.limiteConsulta.mostraJanela('Playlist encontrada',  descricao)
+		else:
+			self.limiteConsulta.mostraJanela('Não encontrada', \
+									'Playlist não encontrada')
+
 	def inserePlaylist(self):
 		self.listaArtistas = self.controlePrincipal.ctrlArtista.listaArtistas
 		self.limiteIns = LimiteInserePlaylist(self, self.listaArtistas, self.listaMusicas)
@@ -156,3 +179,13 @@ class LimiteInserePlaylist(tk.Toplevel):
 
 	def mostraJanela(self, titulo: str, msg: str):
 		messagebox.showinfo(titulo, msg)
+
+class LimiteConsultaPlaylist:
+	def __init__(self, controle):
+		self.controle = controle
+
+	def mostraJanela(self, titulo, msg):
+		messagebox.showinfo(titulo, msg)
+
+	def mostraDialog(self, titulo, mensagem):
+		return simpledialog.askstring(titulo, mensagem)
