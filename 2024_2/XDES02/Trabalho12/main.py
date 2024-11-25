@@ -3,6 +3,7 @@ import tkinter as tk
 
 from artista import CtrlArtista
 from album import CtrlAlbum
+from playlist import CtrlPlaylist
 
 class ControlePrincipal():
 	def __init__(self):
@@ -10,6 +11,7 @@ class ControlePrincipal():
 
 		self.ctrlArtista = CtrlArtista()
 		self.ctrlAlbum = CtrlAlbum(self)
+		self.ctrlPlaylist = CtrlPlaylist(self)
 
 		self.limite = LimitePrincipal(self.root, self)
 
@@ -28,11 +30,12 @@ class ControlePrincipal():
 	def consultaAlbum(self):
 		self.ctrlAlbum.consultaAlbum()
 
-	def inserePlaylist():
-		pass
+	def inserePlaylist(self):
+		self.ctrlPlaylist.inserePlaylist()
 
-	def consultaPlaylist():
-		pass
+	def consultaPlaylist(self):
+		print(self.ctrlPlaylist.listaPlaylists)
+		# TODO: remove
 
 	def sair(self):
 		self.root.destroy()

@@ -54,12 +54,21 @@ class CtrlArtista:
 	def insereArtista(self):
 		self.limiteIns = LimiteInsereArtista(self)
 
-	def getArtista(self, nome:str):
+	def getArtista(self, nome: str):
 		for artista in self.listaArtistas:
 			if artista.nome == nome:
 				return artista
 
 		return None
+
+	def getMusicas(self, nome: str):
+		artista = self.getArtista(nome)
+
+		musicas = []
+		for musica in artista.musicas:
+			musicas.append(musica)
+
+		return musicas
 
 	def mostraArtista(self):
 		self.limiteConsulta = LimiteMostraArtistas(self)

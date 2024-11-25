@@ -17,6 +17,8 @@ class Album:
 		self.__artista = artista
 		self.__musicas: List[Musica] = []
 
+		artista.addAlbum(self)
+
 	@property
 	def ano(self):
 		return self.__ano
