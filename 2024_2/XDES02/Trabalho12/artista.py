@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, simpledialog
 
 from typing import List, TYPE_CHECKING
 
@@ -54,7 +54,34 @@ class CtrlArtista:
 	def insereArtista(self):
 		self.limiteIns = LimiteInsereArtista(self)
 
-	def mostraArtistas(self):
+	def mostraArtista(self):
+		self.limiteConsulta = LimiteMostraArtistas(self)
+
+		buscaNome = self.limiteConsulta.mostraDialog('Consulta', 'Nome: ')
+		artistaBusca = None
+
+		for artista in self.listaArtistas:
+			if artista.nome == buscaNome:
+				artistaBusca = artista
+				break
+
+		if artistaBusca != None:
+			descricao = ''
+
+			for album in artistaBusca.albuns:
+				descricao += 'Album: ' + album.titulo + '\n'
+
+				for faixa in album.musicas:
+					descricao += f'#{faixa.nroFaixa} - {faixa.titulo} \n'
+				descricao += '\n'
+
+
+			self.limiteConsulta.mostraJanela('Artista encontrado', \
+									descricao)
+		else:
+			self.limiteConsulta.mostraJanela('Não encontrado', \
+									'Artista não encontrado')
+
 		text = 'Nome\n'
 
 		for artista in self.listaArtistas:
@@ -112,5 +139,11 @@ class LimiteInsereArtista(tk.Toplevel):
 		messagebox.showinfo(titulo, msg)
 
 class LimiteMostraArtistas:
-	def __init__(self, text: str) -> None:
-		messagebox.showinfo('Lista de artistas', text)
+	def __init__(self, controle) -> None:
+		self.controle = controle
+
+	def mostraJanela(self, titulo, msg):
+		messagebox.showinfo(titulo, msg)
+
+	def mostraDialog(self, titulo, mensagem):
+		return simpledialog.askstring(titulo, mensagem)

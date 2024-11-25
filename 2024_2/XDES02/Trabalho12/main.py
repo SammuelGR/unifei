@@ -18,7 +18,7 @@ class ControlePrincipal():
 		self.ctrlArtista.insereArtista()
 
 	def consultaArtista(self):
-		self.ctrlArtista.mostraArtistas()
+		self.ctrlArtista.mostraArtista()
 
 	def insereAlbum():
 		pass
