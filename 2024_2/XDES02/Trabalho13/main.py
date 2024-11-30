@@ -21,6 +21,9 @@ class ControlePrincipal:
 	def listaProfissionais(self):
 		self.ctrlProfissional.listaProfissionais()
 
+	def faturamento(self):
+		self.ctrlProfissional.faturamento()
+
 	def cadastraAluno(self):
 		self.ctrlAluno.cadastraAluno()
 
@@ -46,6 +49,8 @@ class LimitePrincipal:
 									command=self.controle.cadastraProfissional)
 		self.profissionalMenu.add_command(label='Lista', \
 									command=self.controle.listaProfissionais)
+		self.profissionalMenu.add_command(label='Faturamento', \
+									command=self.controle.faturamento)
 		self.menubar.add_cascade(label='Profissional', \
 							menu=self.profissionalMenu)
 

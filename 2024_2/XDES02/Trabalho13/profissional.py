@@ -111,6 +111,38 @@ class CtrlProfissional:
 									'Profissional cadastrado com sucesso')
 		self.clearHandler(event)
 
+	def faturamento(self):
+		self.limiteFaturamento = LimiteFaturamento(self)
+
+		buscaCpf = self.limiteFaturamento.mostraDialog('Consulta', 'CPF: ')
+
+		profBusca = None
+
+		for prof in self.listaDeProfissionais:
+			if prof.cpf == buscaCpf:
+				profBusca = prof
+				break
+
+		if profBusca != None:
+			valorPilates = 0.0
+			valorTreinoFunc = 0.0
+
+			for aluno in profBusca.listaAlunos:
+				if aluno.tipoAula == 'Pilates':
+					valorPilates += aluno.valorMensalidade
+				else:
+					valorTreinoFunc += aluno.valorMensalidade
+
+			descricao = (
+				f'Valor Pilates: R$ {valorPilates:.2f}\n' \
+				f'Valor Funcional: R$ {valorTreinoFunc:.2f}'
+			)
+
+			self.limiteFaturamento.mostraJanela('Faturamento', descricao)
+		else:
+			self.limiteFaturamento.mostraJanela('Não encontrado', \
+									'Profissional não encontrado')
+
 	def clearHandler(self, event):
 		self.limiteCadastra.inputCpf.delete(0, \
 								len(self.limiteCadastra.inputCpf.get()))
@@ -194,3 +226,13 @@ class LimiteListaProfissionais(tk.Toplevel):
 
 	def mostraJanela(self, titulo: str, msg: str):
 		messagebox.showinfo(titulo, msg)
+
+class LimiteFaturamento(tk.Toplevel):
+	def __init__(self, controle: CtrlProfissional) -> None:
+		self.controle = controle
+
+	def mostraJanela(self, titulo, msg):
+		messagebox.showinfo(titulo, msg)
+
+	def mostraDialog(self, titulo, msg):
+		return simpledialog.askstring(titulo, msg)
