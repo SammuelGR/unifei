@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
 
+from math import ceil
 from typing import Literal, List
 
 class Jogo:
@@ -95,6 +96,13 @@ class Jogo:
 
 		self.avaliacao = novaAvaliacao
 
+	def getDescricao(self):
+		return f'Código: {self.codigo}' \
+				f'\nTítulo: {self.titulo}' \
+				f'\nConsole: {self.console}' \
+				f'\nGênero: {self.genero}' \
+				f'\nPreço: R$ {self.preco:.2f}' \
+				f'\nAvaliação: {self.avaliacao:.1f}'
 
 class CtrlJogo:
 	def __init__(self):
@@ -176,6 +184,17 @@ class CtrlJogo:
 
 	def fechaHandler(self, event):
 		self.limiteCadastra.destroy()
+
+	def exibeAvaliacoes(self, event):
+		avaliacaoSel = int(self.limiteConsulta.comboAvaliacao.get())
+		self.limiteConsulta.textJogos.config(state=tk.NORMAL)
+		self.limiteConsulta.textJogos.delete('1.0', tk.END)
+
+		for jogo in self.listaDeJogos:
+			if ceil(jogo.avaliacao) == avaliacaoSel:
+				self.limiteConsulta.textJogos.insert(tk.END, jogo.getDescricao() + '\n\n')
+
+		self.limiteConsulta.textJogos.config(state=tk.DISABLED)
 
 	def salvaJogos(self):
 		pass # TODO: implement
@@ -282,5 +301,32 @@ class LimiteAvaliaJogo(tk.Toplevel):
 	def mostraJanela(self, titulo: str, msg: str):
 		messagebox.showinfo(titulo, msg)
 
-class LimiteConsultaJogos:
-	pass
+class LimiteConsultaJogos(tk.Toplevel):
+	def __init__(self, controle: CtrlJogo):
+		tk.Toplevel.__init__(self)
+
+		self.geometry('400x250')
+		self.title('Consultar Jogos')
+		self.controle = controle
+
+		self.frameCombo = tk.Frame(self)
+		self.frameCombo.pack()
+
+		self.labelAvaliacao = tk.Label(self.frameCombo, text='Avaliação: ')
+		self.labelAvaliacao.pack(side='left')
+		self.escolhaAvaliacao = tk.StringVar()
+		self.comboAvaliacao = ttk.Combobox( \
+									self.frameCombo, \
+									width=15, \
+									values=[1, 2, 3, 4, 5], \
+									textvariable=self.escolhaAvaliacao \
+								)
+		self.comboAvaliacao.bind('<<ComboboxSelected>>', \
+									self.controle.exibeAvaliacoes)
+		self.comboAvaliacao.pack()
+
+		self.frameJogos = tk.Frame(self)
+		self.frameJogos.pack()
+		self.textJogos = tk.Text(self.frameJogos, height=20, width=40)
+		self.textJogos.pack()
+		self.textJogos.config(state=tk.DISABLED)
