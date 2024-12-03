@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 
 from math import ceil
+import os.path
+import pickle
 from typing import Literal, List
 
 class Jogo:
@@ -106,7 +108,11 @@ class Jogo:
 
 class CtrlJogo:
 	def __init__(self):
-		self.__listaDeJogos: List[Jogo] = []
+		if not os.path.isfile("jogo.pickle"):
+			self.__listaDeJogos: List[Jogo] = []
+		else:
+			with open("jogo.pickle", "rb") as f:
+				self.__listaDeJogos: List[Jogo] = pickle.load(f)
 
 	@property
 	def listaDeJogos(self):
@@ -197,7 +203,9 @@ class CtrlJogo:
 		self.limiteConsulta.textJogos.config(state=tk.DISABLED)
 
 	def salvaJogos(self):
-		pass # TODO: implement
+		if len(self.listaDeJogos) != 0:
+			with open('jogo.pickle', 'wb') as f:
+				pickle.dump(self.listaDeJogos, f)
 
 
 class LimiteCadastraJogo(tk.Toplevel):
