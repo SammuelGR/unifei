@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cadastro de projetos - INTEGRA UNIFEI</title>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<a href="https://unifei.edu.br/" target="_blank">UNIFEI</a>
+					</li>
+
+					<li>
+						<a href="https://proex.unifei.edu.br/" target="_blank">PROEX</a>
+					</li>
+
+					<li>
+						<a href="https://unifei.edu.br/evento/integra/" target="_blank">INTEGRA UNIFEI</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<header>
+				<h1>Formulário de Apresentação de Projetos de Extensão</h1>
+
+				<p>
+					Nesse formulário sua equipe deverá preencher os dados do seu projeto de extensão para que a PROEX
+					possa distribuir os stands da forma mais adequada.
+				</p>
+			</header>
+
+			<form action="#">
+				<fieldset>
+					<legend>Identificação do Projeto</legend>
+
+					<label>
+						Nome do Projeto
+						<input name="project-name" type="text" />
+					</label>
+
+					<label>
+						Quantidade de Integrantes
+						<input name="members-quantity" type="text" />
+					</label>
+
+					<label>
+						Instituto de Localização
+						<input name="location" type="text" />
+					</label>
+				</fieldset>
+
+				<fieldset>
+					<legend>Área de Atuação</legend>
+
+					<p>Selecione apenas uma opção</p>
+
+					<label>
+						Aplicação Web/Mobile
+						<input type="radio" name="area-of-activity" value="app-web-mobile" />
+					</label>
+
+					<label>
+						Desenvolvimento de Jogos
+						<input type="radio" name="area-of-activity" value="games" />
+					</label>
+
+					<label>
+						Drones
+						<input type="radio" name="area-of-activity" value="drones" />
+					</label>
+
+					<label>
+						Competição de Robôs
+						<input type="radio" name="area-of-activity" value="robots-contest" />
+					</label>
+
+					<label>
+						Contabilidade
+						<input type="radio" name="area-of-activity" value="accounting" />
+					</label>
+
+					<label>
+						Metereologia
+						<input type="radio" name="area-of-activity" value="meteorology" />
+					</label>
+				</fieldset>
+
+				<fieldset>
+					<legend>Fomento</legend>
+
+					<label>
+						Tipo
+						<select name="type">
+							<option value="junior-enterprise">Empresa Júnior</option>
+
+							<option value="middle-enterprise">Empresa Pleno</option>
+
+							<option value="senior-enterprise">Empresa Sênior</option>
+						</select>
+					</label>
+				</fieldset>
+
+				<button type="submit">Enviar</button>
+			</form>
+		</main>
+
+		<footer>
+			<p>Feito com &amp;#9829 por <a href="https://github.com/sammuelgr" target="_blank">Sammuel Reis</a></p>
+		</footer>
+	</body>
+</html>
