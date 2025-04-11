@@ -60,6 +60,9 @@ cpp_space_within_parameter_list_parentheses=false
 cpp_space_within_square_brackets=false
 cpp_wrap_preserve_blocks=one_liners
 
+[*.html]
+max_line_length = 120
+
 end_of_line = lf
 indent_size = 4
 indent_style = tab
