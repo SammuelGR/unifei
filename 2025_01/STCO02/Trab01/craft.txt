@@ -1,0 +1,532 @@
+Bombinha
+Minério de cobre 4
+Carvão 1
+
+Bomba
+Minério de ferro 4
+Carvão 1
+
+Megabomba
+Minério de ouro 4
+Essência solar 1
+Essência nula 1
+
+Portão
+Madeira 10
+
+Cerca de madeira
+Madeira 2
+
+Cerca de Pedra
+Pedra 2
+
+Cerca de ferro
+Barra de ferro 1
+
+Cerca de madeira de lei
+Madeira de lei 1
+
+Aspersor
+Barra de cobre 1
+Barra de ferro 1
+
+Aspersor de qualidade
+Barra de ferro 1
+Barra de ouro 1
+Quartzo refinado 1
+
+Aspersor de irídio
+Barra de ouro 1
+Barra de irídio 1
+Conjunto de pilhas 1
+
+Máquina de maionese
+Madeira 15
+Pedra 15
+Cristal de terra 1
+Barra de cobre 1
+
+Apiário
+Madeira 40
+Carvão 8
+Barra de ferro 1
+Xarope de ácer 1
+
+Jarra de conserva
+Madeira 50
+Pedra 40
+Carvão 8
+
+Prensa de queijo
+Madeira 45
+Pedra 45
+Madeira de lei 10
+Barra de cobre 1
+
+Tear
+Madeira 60
+Fibra 30
+Alcatrão de pinho 1
+
+Barril
+Madeira 30
+Barra de cobre 1
+Barra de ferro 1
+Resina de carvalho 1
+
+Gerador de óleo
+Gosma 50
+Madeira de lei 20
+Barra de ouro 1
+
+Barril de madeira
+Madeira 20
+Madeira de lei 1
+
+Defumador de Peixes
+Madeira de lei 10
+Geléia do Mar 1
+Geléia do Rio 1
+Geléia da Caverna 1
+
+Desidratador
+Madeira 30
+Argila 2
+Quartzo de fogo 1
+
+Fertilizante básico
+Seiva 2
+
+Fertilizante de qualidade
+Seiva 2
+Qualquer peixe 1
+
+Fertilizante Premium
+Barra de irídio 1
+Seiva 40
+
+Solo Foliar
+Alcatrão de pinho 1
+Musgo 5
+
+Solo Foliar Premium
+Resina de carvalho 1
+Fragmento de Osso 5
+
+Hiper Solo Foliar
+Minério Radioativo 1
+Fragmento de Osso 3
+Essência solar 1
+
+Solo retentor
+Pedra 2
+
+Solo retentor de qualidade
+Pedra 3
+Argila 1
+
+Solo Retentor Premium
+Pedra 5
+Fibra 3
+Argila 1
+
+Fertilizante de Árvore
+Fibra 5
+Pedra 5
+
+Sementes Silvestres (Prim)
+Raiz-forte 1
+Narciso 1
+Alho-poró 1
+Dente-de-leão 1
+
+Sementes Silvestres (Ver)
+Café de jardim 1
+Uva 1
+Ervilha-de-cheiro 1
+
+Sementes Silvestres (Out)
+Cogumelo comum 1
+Ameixa selvagem 1
+Avelã 1
+Amora 1
+
+Sementes Silvestres (Inv)
+Raiz de inverno 1
+Fruta de cristal 1
+Inhame de neve 1
+Flor de açafrão 1
+
+Sementes antigas
+Semente antiga 1
+
+Mudas de grama
+Fibra 10
+
+Broto de Chá
+Sementes Silvestres (Qualquer) 2
+Fibra 5
+Madeira 5
+
+Semente de Fibra
+Sementes mistas 1
+Seiva 5
+Argila 1
+
+Piso de madeira
+Madeira 1
+
+Piso Rústico de Tábuas
+Madeira 1
+
+Piso de palha
+Madeira 1
+Fibra 1
+
+Piso desgastado
+Madeira 1
+
+Piso de cristal
+Quartzo refinado 1
+
+Piso de pedra
+Pedra 1
+
+Piso Passarela de Pedra
+Pedra 1
+
+Piso de tijolo
+Argila 2
+Pedra 5
+
+Caminho de madeira
+Madeira 1
+
+Caminho de cascalho
+Pedra 1
+
+Caminho de pedra arredondada
+Pedra 1
+
+Caminho de Pedras Polidas
+Pedra 1
+
+Caminho de cristal
+Quartzo refinado 1
+
+Anzol
+Barra de ferro 2
+
+Boia-armadilha
+Barra de cobre 1
+Seiva 10
+
+Boia de cortiça
+Madeira 10
+Madeira de lei 5
+Gosma 10
+
+Boia de Qualidade
+Barra de cobre 1
+Seiva 20
+Essência solar 5
+
+Caça ao tesouro
+Barra de ouro 2
+
+Isca artificial
+Barra de ferro 2
+Tecido 1
+
+Anzol farpado
+Barra de cobre 1
+Barra de ferro 1
+Barra de ouro 1
+
+Ímã
+Barra de ferro 1
+
+Isca
+Carne de inseto 1
+
+Isca selvagem
+Fibra 10
+Carne de inseto 5
+Gosma 5
+
+Isca Mágica
+Minério Radioativo 1
+Carne de inseto 3
+
+Covo
+Madeira 40
+Barra de ferro 3
+Com a profissão Armadilheiro: Madeira 25
+Barra de cobre 2
+
+Anel duro
+Barra de cobre 10
+Quartzo refinado 5
+Cristal de terra 10
+
+Anel de Pedra Luminosa
+Essência solar 5
+Barra de ferro 5
+
+Anel de guerreiro
+Barra de ferro 10
+Carvão 25
+Lágrima congelada 10
+
+Anel de Ioba
+Barra de ouro 5
+Barra de ferro 5
+Diamante 1
+
+Anel de irídio
+Barra de irídio 5
+Essência solar 50
+Essência nula 50
+
+Anel de Casamento
+Barra de irídio 5
+Fragmento prismático 1
+
+Lanchinho
+Bolota 1
+Semente de ácer 1
+Pinha 1
+
+Elixir da vida
+Cogumelo vermelho 1
+Cogumelo roxo 1
+Morel 1
+Cantarelo 1
+
+Óleo de alho
+Alho 10
+Óleo 1
+
+Filé de Inseto
+Carne de inseto 10
+
+Tocha
+Madeira 1
+Seiva 2
+
+Fogueira
+Pedra 10
+Madeira 10
+Fibra 10
+
+Braseiro de madeira
+Madeira 10
+Carvão 1
+Fibra 5
+
+Braseiro de pedra
+Pedra 10
+Carvão 1
+Fibra 5
+
+Braseiro dourado
+Barra de ouro 1
+Carvão 1
+Fibra 5
+
+Braseiro esculpido
+Madeira de lei 10
+Carvão 1
+
+Braseiro de toco de árvore
+Madeira de lei 5
+Carvão 1
+
+Braseiro de barril
+Madeira 50
+Essência solar 1
+Carvão 1
+
+Braseiro de crânio
+Madeira de lei 10
+Essência solar 1
+Carvão 1
+
+Braseiro de mármore
+Mármore 1
+Água-marinha 1
+Pedra 100
+
+Poste de luz lígneo
+Madeira 50
+Conjunto de pilhas 1
+
+Poste de luz férreo
+Barra de ferro 1
+Conjunto de pilhas 1
+
+Cabeça de abóbora
+Abóbora 1
+Tocha 1
+
+Carvoaria
+Madeira 20
+Barra de ouro 1
+
+Cristalário
+Pedra 99
+Barra de ouro 5
+Barra de irídio 2
+Conjunto de pilhas 1
+
+Fornalha
+Minério de cobre 20
+Pedra 25
+
+Para-raios
+Barra de ferro 1
+Quartzo refinado 1
+Asa de morcego 5
+
+Máquina de reciclagem
+Madeira 25
+Pedra 25
+Barra de ferro 1
+
+Gerador de sementes
+Madeira 25
+Carvão 10
+Barra de ouro 1
+
+Incubador de gosmas
+Barra de irídio 2
+Gosma 100
+
+Incubadora de Avestruzes
+Fragmento de Osso 50
+Madeira de lei 50
+Fragmento de Brasa 20
+
+Prensa de Gosmas
+Carvão 25
+Quartzo de fogo 1
+Conjunto de pilhas 1
+
+Torneirinha
+Madeira 40
+Barra de cobre 2
+
+Torneirinha Pesada
+Madeira de lei 30
+Barra Radioativa 1
+
+Cesto de minhocas
+Madeira de lei 25
+Barra de ouro 1
+Barra de ferro 1
+Fibra 50
+
+Cesto de Minhocas de Luxo
+Cesto de minhocas 1
+Musgo 30
+
+Moedor de Ossos
+Fragmento de Osso 10
+Argila 3
+Pedra 20
+
+Esmagador de Geodos
+Barra de ouro 2
+Pedra 50
+Diamante 1
+
+Tronco de Cogumelo
+Madeira de lei 10
+Musgo 10
+
+Máquina de Iscas
+Barra de ferro 3
+Coral 3
+Ouriço-do-mar 1
+
+Barril de flores
+Madeira 15
+Bulbo de Tulipa 1
+Sementes de Jasmim-azul 1
+Sementes de papoula 1
+Sementes de Miçanga 1
+
+Estátua maligna
+Pedra 25
+Carvão 5
+
+Bloco de flauta
+Madeira 10
+Minério de cobre 2
+Fibra 20
+
+Bloco de bateria
+Pedra 10
+Minério de cobre 2
+Fibra 20
+
+Baú
+Madeira 50
+
+Placa de Madeira
+Madeira 25
+
+Placa de Pedra
+Pedra 25
+
+Vaso de Jardim
+Argila 1
+Pedra 10
+Quartzo refinado 1
+
+Espantalho
+Madeira 50
+Carvão 1
+Fibra 20
+
+Espantalho de luxo
+Madeira 50
+Fibra 40
+Minério de irídio 1
+
+Escadaria
+Pedra 99
+
+Munição explosiva
+Barra de ferro 1
+Carvão 2
+
+Totem de teletransporte: Praia
+Madeira de lei 1
+Coral 2
+Fibra 10
+
+Totem de teletransporte: Montanhas
+Madeira de lei 1
+Barra de ferro 1
+Pedra 25
+
+Totem de teletransporte: Fazenda
+Madeira de lei 1
+Mel 1
+Fibra 20
+
+Totem de Teletransporte: Deserto
+Madeira de lei 2
+Coco 1
+Minério de irídio 4
+
+Totem de Teletransporte: Ilha
+Madeira de lei 5
+Dente de Dragão 1
+Gengibre 1
+
+Totem de chuva
+Madeira de lei 1
+Óleo de trufas 1
+Alcatrão de pinho 5
