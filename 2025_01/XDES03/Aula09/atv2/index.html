@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lista de Compras</title>
+	</head>
+
+	<body>
+		<main>
+			<header>
+				<h1>Bem vindo a Amazon</h1>
+
+				<p>Faça suas compras e nos dê mais dinheiro.</p>
+			</header>
+
+			<section>
+				<h2>Carrinho de compras:</h2>
+
+				<p>Adicione seus produtos</p>
+
+				<form action="" id="cart-form">
+					<label>
+						<span>Quantidade</span>
+
+						<input type="number" name="quantity" id="quantity" />
+					</label>
+
+					<label>
+						<span>Nome</span>
+
+						<input type="text" name="product-name" id="product-name" />
+					</label>
+
+					<button id="submit-button" type="submit">Adicionar</button>
+				</form>
+			</section>
+
+			<section>
+				<h2>Pedido:</h2>
+
+				<p id="empty-placeholder">Seu pedido está vazio. Adicione produtos no carrinho!</p>
+
+				<ul></ul>
+			</section>
+		</main>
+
+		<script src="main.js"></script>
+	</body>
+</html>
