@@ -1,0 +1,90 @@
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+}
+
+input,
+label {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+form,
+section {
+  border: 1px solid black;
+  border-radius: 12px;
+  margin: 0 auto;
+  width: 50%;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 30vh;
+
+  label {
+    text-align: center;
+  }
+
+  & button,
+  input {
+    border-radius: 10px;
+  }
+
+  & label,
+  button {
+    width: 40%;
+  }
+
+  & input {
+    padding: 0 8px;
+    width: 100%;
+  }
+
+  & button {
+    color: white;
+    cursor: pointer;
+    background-color: #5f9f9f;
+  }
+}
+
+#products-list-container {
+  margin: 16px auto 24px;
+
+  & h2 {
+    text-align: center;
+  }
+
+  & li {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & p {
+    margin: 0;
+    width: 30%;
+  }
+
+  & button {
+    color: white;
+    cursor: pointer;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    width: 10%;
+  }
+}
+
+footer {
+  margin: auto 0 8px;
+  text-align: center;
+}
