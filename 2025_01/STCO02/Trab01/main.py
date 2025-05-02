@@ -87,7 +87,7 @@ class HashTable:
 
 def getRecipes():
 	recipes = HashTable()
-	# item_uses = HashTable()
+	item_uses = HashTable()
 
 	with open('craft.txt', 'r', encoding='utf-8') as f:
 		is_key = True
@@ -115,18 +115,18 @@ def getRecipes():
 
 					recipes[current_recipe_key].append((item, quantity))
 
-					# if item not in item_uses:
-					# 	item_uses[item] = []
+					isAlreadyUsing = item_uses.get(item)
 
-					# item_uses[item].append(current_recipe_key)
+					if isAlreadyUsing is None:
+						item_uses[item] = []
 
-	# return recipes, item_uses
-	return recipes
+					item_uses[item].append(current_recipe_key)
+
+	return recipes, item_uses
 
 
 if __name__ == "__main__":
-	# recipes, item_uses = getRecipes()
-	recipes = getRecipes()
+	recipes, item_uses = getRecipes()
 
 	while True:
 		cmd_title, cmd_value = (input().split(' ', 1) + [None])[:2]
@@ -137,42 +137,24 @@ if __name__ == "__main__":
 			if cmd_value == 'r':
 				recipes.listAll()
 			elif cmd_value == 'i':
-				pass
-				# for name in item_uses.keys():
-				# 	print(name)
+				item_uses.listAll()
 		elif cmd_title == 'r':
+			print(cmd_value)
+
 			item_recipes = recipes.get(cmd_value)
 
 			if item_recipes is not None:
-				print(cmd_value)
-
 				for recipe in item_recipes:
 					print(recipe[0], recipe[1])
 			else:
 				print('Não encontrado')
 		elif cmd_title == 'i':
-			pass
-			# if cmd_value in item_uses:
-			# 	print(cmd_value)
+			print(cmd_value)
 
-			# 	for item in item_uses[cmd_value]:
-			# 		print(item)
-			# else:
-			# 	print('Não encontrado')
+			hasUse = item_uses.get(cmd_value)
 
-# table = HashTable()
-# table['Máquina de maionese'] = [('Madeira', '15'), ('Pedra', '15'), ('Cristal de terra', '1'), ('Barra de cobre', '1')]
-# table['Elixir da vida'] = [('Cogumelo vermelho', '1'), ('Cogumelo roxo', '1'), ('Morel', '1'), ('Cantarelo', '1')]
-# table['Sementes Silvestres (Ver)'] = [('Café de jardim', '1')]
-# table['Piso Rústico de Tábuas'] = [('Madeira', '1')]
-# table['Jarra de conserva'] = [('Madeira', '50'), ('Pedra', '40'), ('Carvão', '8')]
-
-# table.listAll()
-
-# print(table['Máquina de maionese'])
-# print(table['Elixir da vida'])
-# print(table['Sementes Silvestres (Ver)'])
-# print(table['Piso Rústico de Tábuas'])
-# print(table['Jarra de conserva'])
-# print(table['AAAAAAAAAAAAAA'])
-
+			if hasUse is not None:
+				for item in item_uses[cmd_value]:
+					print(item)
+			else:
+				print('Não encontrado')
