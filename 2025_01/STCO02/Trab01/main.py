@@ -79,20 +79,26 @@ class HashTable:
 			if slot.key is not None:
 				print(slot.preorder())
 
+	def __setitem__ (self, key, values):
+		self.put(key, values)
+
+	def __getitem__ (self, key):
+		return self.get(key)
+
 
 table = HashTable()
-table.put('Máquina de maionese', [('Madeira', '15'), ('Pedra', '15'), ('Cristal de terra', '1'), ('Barra de cobre', '1')])
-table.put('Elixir da vida', [('Cogumelo vermelho', '1'), ('Cogumelo roxo', '1'), ('Morel', '1'), ('Cantarelo', '1')])
-table.put('Sementes Silvestres (Ver)', [('Café de jardim', '1')])
-table.put('Piso Rústico de Tábuas', [('Madeira', '1')])
-table.put('Jarra de conserva', [('Madeira', '50'), ('Pedra', '40'), ('Carvão', '8')])
+table['Máquina de maionese'] = [('Madeira', '15'), ('Pedra', '15'), ('Cristal de terra', '1'), ('Barra de cobre', '1')]
+table['Elixir da vida'] = [('Cogumelo vermelho', '1'), ('Cogumelo roxo', '1'), ('Morel', '1'), ('Cantarelo', '1')]
+table['Sementes Silvestres (Ver)'] = [('Café de jardim', '1')]
+table['Piso Rústico de Tábuas'] = [('Madeira', '1')]
+table['Jarra de conserva'] = [('Madeira', '50'), ('Pedra', '40'), ('Carvão', '8')]
 
 # table.listAll()
 
-print(table.get('Máquina de maionese'))
-print(table.get('Elixir da vida'))
-print(table.get('Sementes Silvestres (Ver)'))
-print(table.get('Piso Rústico de Tábuas'))
-print(table.get('Jarra de conserva'))
-print(table.get('AAAAAAAAAAAAAA'))
+print(table['Máquina de maionese'])
+print(table['Elixir da vida'])
+print(table['Sementes Silvestres (Ver)'])
+print(table['Piso Rústico de Tábuas'])
+print(table['Jarra de conserva'])
+print(table['AAAAAAAAAAAAAA'])
 
