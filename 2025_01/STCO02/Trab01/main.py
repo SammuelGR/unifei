@@ -78,6 +78,8 @@ class HashTable:
 		for slot in self.slots:
 			if slot.key is not None:
 				print(str(slot.preorder()).replace("'", ''))
+			else:
+				print('None')
 
 	def __setitem__ (self, key, values):
 		self.put(key, values)
