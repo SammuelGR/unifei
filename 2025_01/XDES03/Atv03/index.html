@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Atividade 03</title>
+	</head>
+
+	<style>
+		.winner {
+			background-color: green;
+			color: white;
+			cursor: not-allowed;
+		}
+
+		.looser {
+			background-color: red;
+			color: white;
+			cursor: not-allowed;
+		}
+	</style>
+
+	<body>
+		<main>
+			<h1>Marcador de Pontuação Magic The Gathering</h1>
+
+			<div>
+				<p>image logo</p>
+
+				<section>
+					<p id="scoreboard"><span>0</span> a <span>0</span></p>
+
+					<label>
+						<span>Escolha a Pontuação Vitoriosa</span>
+
+						<select name="score-values" id="score-values">
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+							<option value="20">20</option>
+							<option value="25">25</option>
+						</select>
+
+						<p>Use os botões para marcar a pontuação vitoriosa</p>
+					</label>
+				</section>
+
+				<section>
+					<button type="button">Jogador 1</button>
+					<button type="button">Jogador 2</button>
+					<button type="button">Reiniciar</button>
+				</section>
+			</div>
+		</main>
+
+		<script src="main.js"></script>
+	</body>
+</html>
