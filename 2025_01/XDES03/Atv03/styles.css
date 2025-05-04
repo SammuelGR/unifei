@@ -59,6 +59,7 @@ main {
   display: flex;
   flex-direction: column;
   margin: auto;
+  position: relative;
   text-align: center;
   width: 400px;
 
@@ -70,6 +71,21 @@ main {
       font-weight: bold;
     }
   }
+}
+
+main::before {
+  content: url("https://github.com/vitorhartmann/Rinha-de-Galo-Battle/blob/main/Imagens/Galo%20de%20Arma.png?raw=true");
+  position: absolute;
+  right: 100%;
+  top: -100px;
+  transform: scale(0.7);
+}
+
+main::after {
+  content: url("https://github.com/vitorhartmann/Rinha-de-Galo-Battle/blob/main/Imagens/Galo%20de%20Calca%20Oponente.png?raw=true");
+  position: absolute;
+  left: 90%;
+  transform: scale(0.9);
 }
 
 #buttons-container {
