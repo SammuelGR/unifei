@@ -3,54 +3,53 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Atividade 03</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="styles.css" />
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐔</text></svg>"
+		/>
+		<title>The Rinha of The Galo</title>
 	</head>
 
-	<style>
-		.winner {
-			background-color: green;
-			color: white;
-			cursor: not-allowed;
-		}
-
-		.looser {
-			background-color: red;
-			color: white;
-			cursor: not-allowed;
-		}
-	</style>
-
 	<body>
+		<h1>The Rinha of The Galo</h1>
+
 		<main>
-			<h1>Marcador de Pontuação Magic The Gathering</h1>
+			<img
+				alt="the rinha of the galo logo"
+				id="game-backdrop"
+				src="https://github.com/vitorhartmann/Rinha-de-Galo-Battle/blob/main/Imagens/RinhaOfTheGalo.png?raw=true"
+			/>
 
-			<div>
-				<p>image logo</p>
+			<section>
+				<p id="scoreboard"><span>0</span> a <span>0</span></p>
 
-				<section>
-					<p id="scoreboard"><span>0</span> a <span>0</span></p>
+				<label>
+					<span>Escolha a Pontuação Vitoriosa</span>
 
-					<label>
-						<span>Escolha a Pontuação Vitoriosa</span>
+					<select name="score-values" id="score-values">
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option value="15">15</option>
+						<option value="20">20</option>
+						<option value="25">25</option>
+					</select>
 
-						<select name="score-values" id="score-values">
-							<option value="5">5</option>
-							<option value="10">10</option>
-							<option value="15">15</option>
-							<option value="20">20</option>
-							<option value="25">25</option>
-						</select>
+					<p>Use os botões para marcar a pontuação vitoriosa</p>
+				</label>
+			</section>
 
-						<p>Use os botões para marcar a pontuação vitoriosa</p>
-					</label>
-				</section>
-
-				<section>
-					<button type="button">Jogador 1</button>
-					<button type="button">Jogador 2</button>
-					<button type="button">Reiniciar</button>
-				</section>
-			</div>
+			<section id="buttons-container">
+				<button type="button">Galo 1</button>
+				<button type="button">Galo 2</button>
+				<button type="button">Reiniciar</button>
+			</section>
 		</main>
 
 		<script src="main.js"></script>

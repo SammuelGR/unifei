@@ -1,0 +1,104 @@
+:root {
+  --bg-color: #0d1117;
+  --card-bg-color: #161b22;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --button-bg-color: #f7931a;
+  --button-hover-bg-color: #ffae42;
+  --winner-bg-color: green;
+  --looser-bg-color: red;
+}
+
+body,
+button,
+select {
+  color: var(--text-secondary);
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+select {
+  background-color: var(--card-bg-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--bg-color);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+}
+
+h1 {
+  color: var(--text-primary);
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
+  margin: 16px 0 24px;
+  text-align: center;
+}
+
+#game-backdrop {
+  aspect-ratio: 16/10;
+  object-fit: fill;
+  max-width: 100%;
+}
+
+main {
+  align-items: center;
+  background-color: var(--card-bg-color);
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  width: 400px;
+
+  & #scoreboard {
+    font-size: 2rem;
+    text-align: center;
+
+    & span {
+      font-weight: bold;
+    }
+  }
+}
+
+#buttons-container {
+  display: flex;
+  width: 100%;
+
+  & button {
+    align-items: center;
+    background-color: var(--button-bg-color);
+    color: var(--bg-color);
+    display: flex;
+    flex: 1;
+    height: 32px;
+    justify-content: center;
+
+    &:hover {
+      background-color: var(--button-hover-bg-color);
+    }
+
+    &.winner {
+      background-color: var(--winner-bg-color);
+      cursor: not-allowed;
+    }
+
+    &.looser {
+      background-color: var(--looser-bg-color);
+      cursor: not-allowed;
+    }
+
+    transition: background-color 250ms ease-in-out;
+  }
+}
