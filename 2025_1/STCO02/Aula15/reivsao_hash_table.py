@@ -39,25 +39,23 @@ class HashTable:
 	def get(self, key):
 		hv = self.hash(key) % self.size
 
+		searchStr = key[:3].lower()
 		results = []
 
 		for k in self.slots[hv]:
-			frankstein = key[:3].lower()
-			frankstein2 = k[:3].lower()
-
+			slot = k[:3].lower()
 
 			for i in range(3):
-				f1 = frankstein[i].lower()
-				f2 = frankstein2[i].lower()
+				searchChar = searchStr[i].lower()
+				slotChar = slot[i].lower()
 
-				if f1 in crypticChars:
-					frankstein = frankstein[0:i] + crypticChars[f1] + frankstein[i+1:3]
+				if searchChar in crypticChars:
+					searchStr = searchStr[0:i] + crypticChars[searchChar] + searchStr[i+1:3]
 
+				if slotChar in crypticChars:
+					slot = slot[0:i] + crypticChars[slotChar] + slot[i+1:3]
 
-				if f2 in crypticChars:
-					frankstein2 = frankstein2[0:i] + crypticChars[f2] + frankstein2[i+1:3]
-
-			if frankstein == frankstein2:
+			if searchStr == slot:
 				results.append(k)
 
 		if len(results) > 0:
