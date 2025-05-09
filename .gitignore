@@ -9,7 +9,6 @@
 __pycache__
 
 # general
-*.csv
 test_case_output.out
 
 # macOS
