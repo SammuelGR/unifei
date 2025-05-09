@@ -1,0 +1,142 @@
+:root {
+  --bg-color: #0a0a0a;
+  --border-color: #454545;
+  --shadow-color: #666666;
+  --text-primary: #ccc;
+  --text-secondary: #454545;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--text-primary);
+  font-family: "Comme", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  margin: 24px 0;
+  text-align: center;
+}
+
+main {
+  margin-bottom: 16px;
+
+  & button {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    width: 128px;
+
+    &:hover {
+      box-shadow: 0 0 2px 1px var(--shadow-color);
+    }
+
+    transition: box-shadow 250ms ease-in-out;
+  }
+}
+
+section {
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  margin: 0 auto;
+  width: 480px;
+
+  & h2 {
+    text-align: center;
+  }
+}
+
+section:first-of-type {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+section:last-of-type {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#add-product-container {
+  padding: 8px;
+
+  & h2 {
+    margin-bottom: 8px;
+  }
+
+  & form {
+    text-align: center;
+  }
+
+  & label {
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
+    margin: 8px 0 24px;
+  }
+
+  & input {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1px 4px;
+  }
+}
+
+#my-cart-container {
+  min-height: 160px;
+  padding: 8px 8px 16px;
+
+  & h2 {
+    margin-bottom: 16px;
+  }
+
+  & #calculate-total {
+    margin: 32px 0 16px;
+  }
+
+  & #total-prices-text {
+    margin-bottom: 16px;
+
+    & span {
+      font-weight: bold;
+    }
+  }
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    width: 60%;
+  }
+
+  & li {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+
+    & button {
+      border-radius: unset;
+      width: 16px;
+    }
+  }
+}
+
+footer {
+  font-size: 0.8rem;
+  margin: auto auto 8px;
+}

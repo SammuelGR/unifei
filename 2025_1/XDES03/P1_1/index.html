@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Comme:wght@200&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Carrinho 🛒</title>
+	</head>
+
+	<body>
+		<main>
+			<h1>Meu e-Commerce</h1>
+
+			<section id="add-product-container">
+				<h2>Produtos</h2>
+
+				<form action="" novalidate>
+					<label>
+						<p>Nome do Produto</p>
+
+						<input type="text" name="product-name" id="input-product-name" />
+					</label>
+
+					<label>
+						<p>Preço</p>
+
+						<input type="number" min="0" name="product-price" id="input-product-price" />
+					</label>
+
+					<button id="button-add-products" type="submit">Adicionar</button>
+				</form>
+			</section>
+
+			<section id="my-cart-container">
+				<h2>Meu Carrinho</h2>
+
+				<ul></ul>
+
+				<button id="calculate-total" type="button">Calcular total</button>
+
+				<p id="total-prices-text">Valor da Compra: R$ <span id="total-prices-amount">0.00</span></p>
+			</section>
+		</main>
+
+		<footer>
+			Feito com &heartsuit; por
+			<a href="http://github.com/sammuelgr" target="_blank" rel="noopener noreferrer">Sammuel</a>
+		</footer>
+
+		<script src="main.js"></script>
+	</body>
+</html>
