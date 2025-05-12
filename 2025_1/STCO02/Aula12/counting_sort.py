@@ -1,18 +1,18 @@
 import random
 
-def countingSort(list, k):
-	B = [None for _ in range(0, len(list))]
-	C = [0 for _ in range(0, k + 1)]
+def countingSort(list, maxValue):
+	result = [None for _ in range(0, len(list))]
+	count = [0 for _ in range(0, maxValue + 1)]
 
 	for a in list:
-		C[a] += 1
+		count[a] += 1
 
-	for i in range(1, k + 1):
-		C[i] += C[i-1]
+	for i in range(1, maxValue + 1):
+		count[i] += count[i-1]
 
 	for a in list:
-		B[C[a] - 1] = a
-		C[a] -= 1
+		result[count[a] - 1] = a
+		count[a] -= 1
 
 def stableCountingSort(list, k):
 	B = [None for _ in range(0, len(list))]
