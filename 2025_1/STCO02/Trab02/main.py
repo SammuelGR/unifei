@@ -40,11 +40,10 @@ if __name__ == '__main__':
 				total += userRating[j] * creatures[i][j + 1]
 
 			prevPoints = creatures[i][8] if len(creatures[i]) >= 9 else 0
-			updatedCreature = (*creatures[i][0:7], total, prevPoints)
-			creatures[i] = updatedCreature
+			creatures[i] = (*creatures[i][0:7], total, prevPoints)
 
 		for i in range(0, creaturesSize - 1):
-			for j in range(1, creaturesSize):
+			for j in range(i + 1, creaturesSize):
 				if creatures[i][7] < creatures[j][7]:
 					creatures[i], creatures[j] = creatures[j], creatures[i]
 				elif creatures[i][7] == creatures[j][7]:
@@ -56,9 +55,16 @@ if __name__ == '__main__':
 			creatures[i] = (*creatures[i][0:8], prevPoints + (creaturesSize - i) - 1)
 
 	for i in range(0, creaturesSize - 1):
-		for j in range(1, creaturesSize):
+		for j in range(i + 1, creaturesSize):
 			if creatures[i][8] < creatures[j][8]:
 				creatures[i], creatures[j] = creatures[j], creatures[i]
 
 	for creature in creatures:
 		print(f'{creature[0]} {creature[8]}')
+
+
+# 0 ~ 10 initial rating
+# max 46 users
+# max 1000 creatures
+# -20 ~ 20 single rating
+# max ~ 1200 by user
