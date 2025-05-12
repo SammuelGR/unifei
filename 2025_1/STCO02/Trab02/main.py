@@ -22,6 +22,7 @@ if __name__ == '__main__':
 	usersQty = int(input())
 
 	creatures = getCreatures(fileName)
+	creaturesSize = len(creatures)
 
 	ratings = []
 	for _ in range(0, usersQty):
@@ -32,21 +33,32 @@ if __name__ == '__main__':
 
 		ratings.append(currentRatings)
 
-	for userRating in ratings[2:3]: # TODO: remove limit
-		for i in range(0, len(creatures)):
+	for userRating in ratings:
+		for i in range(0, creaturesSize):
 			total = 0
 			for j in range(0, 6):
 				total += userRating[j] * creatures[i][j + 1]
 
-			updatedCreature = (*creatures[i][0:7], total)
+			prevPoints = creatures[i][8] if len(creatures[i]) >= 9 else 0
+			updatedCreature = (*creatures[i][0:7], total, prevPoints)
 			creatures[i] = updatedCreature
 
-		for i in range(0, len(creatures) - 1):
-			for j in range(1, len(creatures)):
+		for i in range(0, creaturesSize - 1):
+			for j in range(1, creaturesSize):
 				if creatures[i][7] < creatures[j][7]:
 					creatures[i], creatures[j] = creatures[j], creatures[i]
 				elif creatures[i][7] == creatures[j][7]:
 					if creatures[i][0] > creatures[j][0]:
 						creatures[i], creatures[j] = creatures[j], creatures[i]
 
-	print(creatures)
+		for i in range(0, creaturesSize):
+			prevPoints = creatures[i][8]
+			creatures[i] = (*creatures[i][0:8], prevPoints + (creaturesSize - i) - 1)
+
+	for i in range(0, creaturesSize - 1):
+		for j in range(1, creaturesSize):
+			if creatures[i][8] < creatures[j][8]:
+				creatures[i], creatures[j] = creatures[j], creatures[i]
+
+	for creature in creatures:
+		print(f'{creature[0]} {creature[8]}')
