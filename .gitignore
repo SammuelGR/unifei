@@ -13,3 +13,6 @@ test_case_output.out
 
 # macOS
 .DS_Store
+
+# nodejs
+node_modules
