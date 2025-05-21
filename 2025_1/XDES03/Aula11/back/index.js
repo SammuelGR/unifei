@@ -2,25 +2,38 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 
-const dbPath = path.join("db", "disciplinas.json");
-
 const app = express();
 
-app.get("/login", (req, res) => {
-  const { name, password } = req.query;
-
-  const msg = `hola ${name}, your senha es ${password}`;
-
-  res.send(msg);
-});
+const dbPath = path.join("db", "disciplinas.json");
 
 app.get("/disciplinas", (req, res) => {
-  const disciplinasString = fs.readFileSync(dbPath, { encoding: "utf-8" });
-  const disciplinas = JSON.parse(disciplinasString);
+  const { sigla } = req.query;
 
-  res.send(disciplinas);
+  const disciplinasStr = fs.readFileSync(dbPath, { encoding: "utf-8" });
+  const disciplinas = JSON.parse(disciplinasStr);
+
+  if (sigla) {
+    const disciplina = disciplinas.find(
+      (disc) => disc.sigla.toLowerCase() === sigla.toLowerCase()
+    );
+
+    if (disciplina) {
+      res.status(200);
+      res.send(disciplina);
+
+      return;
+    } else {
+      res.status(404);
+      res.send("Sigla não encontrada");
+
+      return;
+    }
+  }
+
+  res.status(200);
+  return res.send(disciplinas);
 });
 
 app.listen(3000, () => {
-  console.log("listening port 3000");
+  console.log("🚪 3000 ✅");
 });
