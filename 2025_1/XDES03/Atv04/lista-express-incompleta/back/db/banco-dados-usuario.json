@@ -4,5 +4,23 @@
     "username": "Jaum",
     "email": "jaum@teste.com.br",
     "password": "123456"
+  },
+  {
+    "id": 2,
+    "username": "novo_user",
+    "email": "a@a.com",
+    "password": "123"
+  },
+  {
+    "id": 3,
+    "username": "novo_userds",
+    "email": "a@b.com",
+    "password": "123"
+  },
+  {
+    "id": 4,
+    "username": "a",
+    "email": "f@f12",
+    "password": "123"
   }
 ]
