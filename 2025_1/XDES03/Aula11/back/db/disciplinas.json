@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "sigla": "COM222",
+    "ementa": "Introdução a Programação Web",
+    "equivalencia": "XDES03"
+  },
+  {
+    "id": 2,
+    "sigla": "XDES03",
+    "ementa": "Introdução a Programação Web",
+    "equivalencia": "COM222"
+  },
+  {
+    "id": 3,
+    "sigla": "CCO016",
+    "ementa": "Fundamentos de Programação",
+    "equivalencia": "XDES01"
+  },
+  {
+    "id": 4,
+    "sigla": "XDES01",
+    "ementa": "Fundamentos de Programação",
+    "equivalencia": "CCO016"
+  },
+  {
+    "id": 5,
+    "sigla": "COM937",
+    "ementa": "Desenvolvimento de Jogos",
+    "equivalencia": "Não Há"
+  },
+  {
+    "id": 6,
+    "sigla": "COM999",
+    "ementa": "ementa boa",
+    "equivalencia": "nao ha"
+  },
+  {
+    "id": 7,
+    "sigla": "COM999",
+    "ementa": "ementa boa",
+    "equivalencia": "nao ha"
+  },
+  {
+    "id": 8,
+    "sigla": "COM999",
+    "ementa": "ementa boa",
+    "equivalencia": "nao ha"
+  }
+]

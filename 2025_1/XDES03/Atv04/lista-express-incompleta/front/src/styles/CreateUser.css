@@ -1,0 +1,65 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+
+input{
+    display: block;
+    width: 50%;
+    padding: 0.5rem 0.5rem;
+    font-size: 1.5rem;
+    line-height: 1.43;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    margin-bottom: 1.5%;
+}
+
+.erro{
+    color:red;
+    font: 12px;
+    text-align: left;
+}
+
+.realizar-cadastro{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+    font-size: 1rem;
+    width: 60%;
+}
+
+.server-response{
+    width: 400px;
+    text-align: left;
+}
+
+.titulo{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
+
+
+.titulo h1{
+    font-size: 2rem;
+}
+img{
+    width: 15%;
+}
+
+.LoginUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

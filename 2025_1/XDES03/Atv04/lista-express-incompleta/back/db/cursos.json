@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "nome": "Ciência da Computação",
+      "duracao": "4 anos",
+      "periodo": "integral"
+    },
+    {
+      "id": 2,
+      "nome": "Sistemas de Informação",
+      "duracao": "4 anos e meio",
+      "periodo": "noturno"
+    },
+    {
+      "id": 3,
+      "nome": "Engenharia de Computação",
+      "duracao": "5 anos",
+      "periodo": "integral"
+    },
+    {
+      "id": 4,
+      "nome": "Mestrado em Ciência e Tecnologia da Computação",
+      "duracao": "2 anos",
+      "periodo": "integral"
+    } 
+]
