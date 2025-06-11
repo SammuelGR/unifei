@@ -1,0 +1,62 @@
+.pokemonCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3%;
+    width: 10%;
+    box-shadow: 0.1rem 0.1rem 0.2rem rgb(150, 191, 191);
+    flex: 0 250px;
+    height: 200px;
+    justify-content: space-evenly;   
+
+    p{
+        font-size: 1.2rem;
+        margin-top: auto;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    h2{
+        font-size: 1.2rem;
+    }
+
+    img{
+        margin: 3%;
+        width: 50%;
+        aspect-ratio: 16/10;
+        object-fit: contain;
+    }
+}
+
+
+
+/* .pokemon-edit-buttons-container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+
+    form{
+        flex: 2;
+    }
+
+    form > button{
+        width: 100%;
+    }
+
+    form > button, .edit-pokemon{
+        padding: 0;
+        border: none;
+        border-radius: 1rem;
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 1%;
+    }
+    .edit-pokemon{
+        background-color: rgb(138, 138, 249);
+        flex:1.5;
+    }
+    form > button{
+        background-color: red;
+    }
+} */

@@ -1,0 +1,71 @@
+header{
+    background-color: rgb(15, 132, 248);
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    .section{
+        display: flex;
+        align-items: center;
+        gap: 3%;
+
+        .img-logo{
+            width: 10%;
+            height: 80%;
+            text-align: left;
+            object-fit: contain;
+            flex: 1;
+        }
+    }
+
+    ul{
+        display: flex;
+        gap: 2%;
+        height: 100%;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}
+
+
+
+a:hover{
+    text-decoration: underline;
+}
+
+li:hover{
+    background-color: rgb(74, 167, 248);
+}
+
+p > a{
+    color: black;
+}
+
+.link:hover{
+    background-color: rgb(74, 167, 248);
+}
+.nav{
+    margin: auto 3% auto;
+    .ul-left-side{
+        gap: 10%;
+        li{
+            width: max-content;
+        }
+    }
+}
+
+nav{
+    height: 100%;
+}
+
+li, .link{
+    flex-shrink: 0;
+    display: inline-block;
+    font-size: 1.8rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

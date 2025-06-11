@@ -1,0 +1,10 @@
+.entrar {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  width: fit-content;
+  padding: 8px;
+  margin: 80px auto;
+}
