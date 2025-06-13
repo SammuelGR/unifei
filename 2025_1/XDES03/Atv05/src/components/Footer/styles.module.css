@@ -1,0 +1,14 @@
+.footer {
+  margin: auto 0 8px;
+  padding-top: 8px;
+
+  & small {
+    display: block;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  & a {
+    color: var(--highlight-text-color);
+  }
+}

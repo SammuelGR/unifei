@@ -1,0 +1,29 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  margin: 0 auto 8px;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 16px 0;
+}
+
+.imgContainer {
+  position: relative;
+  height: 264px;
+  width: 100%;
+}
+
+.img {
+  object-fit: contain;
+}
+
+.description {
+  font-size: 0.8rem;
+  margin: 8px 0 0;
+  text-align: justify;
+}
