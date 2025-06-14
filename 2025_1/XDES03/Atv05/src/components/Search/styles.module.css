@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.input {
+  border: 1px solid var(--boundary-color);
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+  padding: 0 8px;
+  width: 100%;
+}
+
+.searchButton {
+  border: 1px solid var(--boundary-color);
+  border-bottom-right-radius: 6px;
+  border-left: none;
+  border-top-right-radius: 6px;
+  padding: 4px 8px;
+  width: 120px;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    border: 1px solid var(--boundary-color);
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--hover-color);
+  }
+
+  transition: background-color 200ms ease-in-out;
+}

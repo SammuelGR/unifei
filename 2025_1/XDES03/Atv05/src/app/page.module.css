@@ -3,11 +3,14 @@
   display: flex;
   flex-direction: column;
   padding: 32px 0 0;
+
+  & section {
+    width: 50%;
+  }
 }
 
 .pageTitle {
   color: var(--highlight-text-color);
   font-size: 1.2rem;
-  font-family: "Times New Roman", Times, serif;
   margin: 32px 0;
 }

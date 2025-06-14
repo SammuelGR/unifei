@@ -12,6 +12,7 @@ import StarWarsLogo from "../../public/Star_Wars_Logo.svg";
 import styles from "./page.module.css";
 import Error from "@/components/Error";
 import Card from "@/components/Card";
+import Search from "@/components/Search";
 
 export default function Home() {
   const [searchText, setSearchText] = useState("");
@@ -38,29 +39,22 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <Image alt="Star Wars Logo" src={StarWarsLogo} width={320} />
+        <Image alt="Star Wars Logo" src={StarWarsLogo} width={240} />
 
         <h1 className={styles.pageTitle}>
           A long time ago in a galaxy far far away...
         </h1>
 
         <section>
-          <form onSubmit={formSubmitHandler}>
-            <input
-              id="input-name"
-              name="input-name"
-              onChange={(e) => setSearchText(e.currentTarget.value)}
-              type="text"
-              value={searchText}
-            />
-            <button
-              disabled={searchText === "" || status === "loading"}
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
+          <Search
+            formSubmitHandler={formSubmitHandler}
+            searchText={searchText}
+            setSearchText={setSearchText}
+            status={status}
+          />
+        </section>
 
+        <section>
           {status !== "error" && character && <Card character={character} />}
           {status === "error" && <Error />}
         </section>

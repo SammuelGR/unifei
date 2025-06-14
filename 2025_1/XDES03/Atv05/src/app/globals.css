@@ -1,7 +1,9 @@
 :root {
   --background: #505050;
+  --boundary-color: #0a0a0a;
   --foreground: #ededed;
   --highlight-text-color: #34a4e0;
+  --hover-color: #c3c3c3;
 }
 
 html,
