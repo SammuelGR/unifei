@@ -2,6 +2,7 @@ import "@/app/styles/pokemon-card.css";
 
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import ConexaoBD from "../libs/conexao-bd";
 
@@ -24,7 +25,9 @@ export default function Pokemon(props: PokemonProps) {
       (pokemon) => pokemon.id !== props.id
     );
 
-    return;
+    await ConexaoBD.armazenaBD(bd, filteredPokemonsList);
+
+    redirect("/dashboard");
   };
 
   return (
@@ -39,7 +42,7 @@ export default function Pokemon(props: PokemonProps) {
       <p>{props.descricao}</p>
 
       <div className="pokemon-buttons-container">
-        <Link id="btn-edit" href="/dashboard/edit">
+        <Link id="btn-edit" href={`/dashboard/edit/${props.id}`}>
           Editar
         </Link>
 
