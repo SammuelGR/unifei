@@ -1,0 +1,50 @@
+[
+  {
+    "id": "7842f630-c92b-43be-b1fd-0df8db7a632a",
+    "nome": "Venusaur",
+    "descricao": "Pokémon de Planta",
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wikidexcdn.net%2Fmwuploads%2Fwikidex%2Fthumb%2Fb%2Fbe%2Flatest%2F20160309230456%2FVenusaur.png%2F1200px-Venusaur.png&f=1&nofb=1&ipt=1e37455f3c7dba08c04c4b41a2b2800365a5dc8d37d4dbb52abf6a0e2c588167&ipo=images"
+  },
+  {
+    "id": "9aa95370-5fef-4415-9f1e-023935ca0d73",
+    "nome": "Blastoise",
+    "descricao": "Melhor pokémon do mundo",
+    "img": "https://cdn.pidgi.net/images/thumb/4/4b/Blastoise_(alt_5)_-_Pokemon_anime.svg/485px-Blastoise_(alt_5)_-_Pokemon_anime.svg.png"
+  },
+  {
+    "id": "4419e35d-7cba-410d-b351-cacb4d401744",
+    "nome": "Pikachu",
+    "descricao": "Pokémon Elétrico",
+    "img": "https://pngimg.com/uploads/pokemon/pokemon_PNG14.png"
+  },
+  {
+    "id": "edb251cb-ac2d-4a20-be26-8822fdd80207",
+    "nome": "Raichu",
+    "descricao": "Pokémon Elétrico",
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Forig00.deviantart.net%2F9e81%2Ff%2F2016%2F178%2Fb%2Ff%2F026_raichu__male__by_tzblacktd-da7v5um.png&f=1&nofb=1&ipt=96db757f97045f7cd3ce6c26613a4c0fd32b68dabf8f7ce2954b9cf88812bc98&ipo=images"
+  },
+  {
+    "id": "22d2901b-09fc-481f-88bc-0c25db3181c2",
+    "nome": "Mew",
+    "descricao": "Pokemon Psiquico ",
+    "img": "https://archives.bulbagarden.net/media/upload/thumb/9/9a/0151Mew.png/375px-0151Mew.png"
+  },
+  {
+    "id": "8a9989fc-c134-44f5-9cf2-5241587efc25",
+    "nome": "Squirtle",
+    "descricao": "Pokémon de Água",
+    "img": "https://tse3.mm.bing.net/th/id/OIP.feSPmUDsUQ9fVAWa6WWVuAHaG1?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "432fe4a8-ce0d-4714-8784-0902b11848d2",
+    "nome": "Charmander",
+    "descricao": "Pokémon de Fogo Inicial",
+    "img": "https://th.bing.com/th/id/R.c1a54158f572dff7bf889ad9676e2f36?rik=n6STui7jVk2WIA&riu=http%3a%2f%2forig13.deviantart.net%2fd44b%2ff%2f2011%2f120%2f8%2f6%2fpokemon___charmander_by_lilnutta10-d2vr4ov.jpg&ehk=IWYVjIUHHVaUQuKkpMRPJr9U7n794fpmWIHi%2fsZec%2fo%3d&risl=&pid=ImgRaw&r=0"
+  },
+  {
+    "id": "84f26a62-c162-448c-8e24-bc0ed31ab35e",
+    "nome": "Bulbasaur",
+    "descricao": "Pokémon de Planta Inicial",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/85a954df-43b3-4b66-9e8d-94fe01b0451f/d9zfx5e-2061d549-0056-4e27-8103-9ba791eaea55.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg1YTk1NGRmLTQzYjMtNGI2Ni05ZThkLTk0ZmUwMWIwNDUxZlwvZDl6Zng1ZS0yMDYxZDU0OS0wMDU2LTRlMjctODEwMy05YmE3OTFlYWVhNTUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.T3CE0g8t41AO79dbdJNRJCnFFZvcaP32PZJhsKqy2zE"
+  }
+]
