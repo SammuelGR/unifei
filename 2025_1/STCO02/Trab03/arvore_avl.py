@@ -10,30 +10,107 @@ random.seed(42)  # Para garantir a reprodutibilidade dos testes
 #FUNÇÕES ADICIONAIS 
 
 #Quando você estiver submetendo no RunCodes, mude para True
-ESTOU_SUBMETENDO_NO_RUNCODES = False
+ESTOU_SUBMETENDO_NO_RUNCODES = True
 
 class noh:
-  def __init__(self, dado):
+  def __init__(self, dado: int):
     self.dado = dado
-    self.esq = None
-    self.dir = None
+    self.esq: noh | None = None
+    self.dir: noh | None = None
+    self.altura: int = 0
+
+def getAltura(raiz: noh):
+  if raiz == None:
+    return -1
+  return raiz.altura
+
+def getFatorDeBalanceamento(raiz: noh):
+  return getAltura(raiz.esq) - getAltura(raiz.dir)
+
+def rotacionaEsq(raiz: noh) -> noh:
+  novaRaiz = raiz.dir
+  raiz.dir = novaRaiz.esq
+  novaRaiz.esq = raiz
+
+  raiz.altura = max(getAltura(raiz.esq), getAltura(raiz.dir)) + 1
+  novaRaiz.altura = max(getAltura(novaRaiz.esq), getAltura(novaRaiz.dir)) + 1
   
-def insere(raiz, dado):
-  pass # TODO
-  #VOCÊ DEVE FAZER ESSA FUNÇÃO
-  ##recebe uma arvore e devolve o endereço da nova arvore com o dado adicionado
+  return novaRaiz
+
+def rotacionaDir(raiz: noh) -> noh:
+  novaRaiz = raiz.esq
+  raiz.esq = novaRaiz.dir
+  novaRaiz.dir = raiz
+
+  raiz.altura = max(getAltura(raiz.esq), getAltura(raiz.dir)) + 1
+  novaRaiz.altura = max(getAltura(novaRaiz.esq), getAltura(novaRaiz.dir)) + 1
+
+  return novaRaiz
+
+def insere(raiz: noh, dado: int):
+  """
+  recebe uma arvore e devolve o endereço da nova arvore com o dado adicionado
+  """
+  if raiz == None:
+    return noh(dado)
   
+  if dado < raiz.dado:
+    raiz.esq = insere(raiz.esq, dado)
+
+    if getFatorDeBalanceamento(raiz) == 2:
+      if dado > raiz.esq.dado:
+        raiz.esq = rotacionaEsq(raiz.esq)
+
+      raiz = rotacionaDir(raiz)
+
+  elif dado > raiz.dado:
+    raiz.dir = insere(raiz.dir, dado)
+
+    if getFatorDeBalanceamento(raiz) == -2:
+      if dado < raiz.dir.dado:
+        raiz.dir = rotacionaDir(raiz.dir)
+      
+      raiz = rotacionaEsq(raiz)
   
-def em_ordem(no):
-  pass # TODO
-  #VOCÊ DEVE FAZER ESSA FUNÇÃO
-  ##Imprime os dados da árvore em ordem crescente
+  else:
+    return raiz
+
+  raiz.altura = max(getAltura(raiz.esq), getAltura(raiz.dir)) + 1
+
+  return raiz
+  
+def em_ordem(no: noh):
+  """
+  Imprime os dados da árvore em ordem crescente
+  """
+  if (no != None):
+    em_ordem(no.esq)
+    print(no.dado, end=" ")
+    em_ordem(no.dir)
 
 
-def encontra_mais_proximo(no, x):
-  pass # TODO
-  #VOCÊ DEVE FAZER ESSA FUNÇÃO
-  ##Encontra o valor mais próximo de x na árvore
+def encontra_mais_proximo(no: noh, x: int):
+  """
+  Encontra o valor mais próximo de x na árvore
+  """
+  raiz = no
+  valorMaisProximo = raiz.dado
+
+  while raiz != None:
+    if x == raiz.dado:
+      return x
+    
+    if abs(x - raiz.dado) < abs(x - valorMaisProximo):
+      valorMaisProximo = raiz.dado
+    elif abs(x - raiz.dado) == abs(x - valorMaisProximo) and raiz.dado < valorMaisProximo:
+      valorMaisProximo = raiz.dado
+
+    if x < raiz.dado:
+      raiz = raiz.esq
+    else:
+      raiz = raiz.dir
+
+  return valorMaisProximo
   
 ## A PARTIR DAQUI NÃO MUDE NADA.
 ## PARTES DESTE CÓDIGO ESTÃO PROPOSITALMENTE
