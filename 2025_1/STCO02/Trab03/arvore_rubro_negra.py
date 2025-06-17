@@ -10,30 +10,104 @@ random.seed(42)  # Para garantir a reprodutibilidade dos testes
 #FUNÇÕES ADICIONAIS 
 
 #Quando você estiver submetendo no RunCodes, mude para True
-ESTOU_SUBMETENDO_NO_RUNCODES = False
+ESTOU_SUBMETENDO_NO_RUNCODES = True
 
 class noh:
-  def __init__(self, dado):
-    self.dado = dado
-    self.esq = None
-    self.dir = None
+  def __init__(self, dado: int):
+    self.dado: int = dado
+    self.esq: noh = None
+    self.dir: noh = None
+    self.cor: bool = True
+
+def ehVermelho(no: noh) -> bool:
+  return False if no == None else no.cor
+
+def rotacionaEsq(no: noh) -> noh:
+  novaRaiz = no.dir
+  no.dir = novaRaiz.esq
+  novaRaiz.esq = no
+
+  novaRaiz.cor = no.cor
+  no.cor = True
+
+  return novaRaiz
+
+def rotacionaDir(no: noh) -> noh:
+  novaRaiz = no.esq
+  no.esq = novaRaiz.dir
+  novaRaiz.dir = no
+
+  novaRaiz.cor = no.cor
+  no.cor = True
+
+  return novaRaiz
+
+def sobeVermelho(no: noh) -> noh:
+  no.cor = True
+  no.esq.cor = False
+  no.dir.cor = False
+
+  return no
+
+def insere(raiz: noh, dado: int, ehFolha: bool = False):
+  """
+  recebe uma arvore e devolve o endereço da nova arvore com o dado adicionado
+  """
+  if raiz == None:
+    return noh(dado)
   
-def insere(raiz, dado):
-  pass # TODO
-  #VOCÊ DEVE FAZER ESSA FUNÇÃO
-  ##recebe uma arvore e devolve o endereço da nova arvore com o dado adicionado
+  if dado < raiz.dado:
+    raiz.esq = insere(raiz.esq, dado, True)
+  
+  elif dado > raiz.dado:
+    raiz.dir = insere(raiz.dir, dado, True)
+  
+  else:
+    return raiz
+  
+  if not ehVermelho(raiz.esq) and ehVermelho(raiz.dir):
+    raiz = rotacionaEsq(raiz)
+  
+  if ehVermelho(raiz.esq) and ehVermelho(raiz.esq.esq):
+    raiz = rotacionaDir(raiz)
+
+  if ehVermelho(raiz.esq) and ehVermelho(raiz.dir):
+    raiz = sobeVermelho(raiz)
+  
+  if ehFolha is False:
+    raiz.cor = False
+  return raiz
   
   
-def em_ordem(no):
-  pass # TODO
-  #VOCÊ DEVE FAZER ESSA FUNÇÃO
-  ##Imprime os dados da árvore em ordem crescente
+def em_ordem(no: noh):
+  if no != None:
+    em_ordem(no.esq)
+    print(no.dado, end=" ")
+    em_ordem(no.dir)
 
 
-def encontra_mais_proximo(no, x):
-  pass # TODO
-  #VOCÊ DEVE FAZER ESSA FUNÇÃO
-  ##Encontra o valor mais próximo de x na árvore
+def encontra_mais_proximo(no: noh, x: int):
+  """
+  Encontra o valor mais próximo de x na árvore
+  """
+  raiz = no
+  valorMaisProximo = raiz.dado
+
+  while raiz != None:
+    if x == raiz.dado:
+      return x
+    
+    if abs(x - raiz.dado) < abs(x - valorMaisProximo):
+      valorMaisProximo = raiz.dado
+    elif abs(x - raiz.dado) == abs(x - valorMaisProximo) and raiz.dado < valorMaisProximo:
+      valorMaisProximo = raiz.dado
+
+    if x < raiz.dado:
+      raiz = raiz.esq
+    else:
+      raiz = raiz.dir
+
+  return valorMaisProximo
   
 ## A PARTIR DAQUI NÃO MUDE NADA.
 ## PARTES DESTE CÓDIGO ESTÃO PROPOSITALMENTE
