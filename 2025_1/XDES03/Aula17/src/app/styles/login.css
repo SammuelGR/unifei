@@ -1,0 +1,72 @@
+.login-form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 2rem;
+    width: 35%;
+    margin: 2% auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4%;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
+    div{
+        text-align: center;
+    }
+
+    button{
+        width: 20%;
+        border-radius: 1rem;
+        background-color: rgb(138, 138, 249);
+        color: rgb(255, 255, 255);
+        height: 4vh;
+        margin-top: 7%;
+        font-size: 1.2rem;
+    }
+}
+
+.user-input{
+    display: flex;
+    border-bottom: 1px solid gray;
+    padding-bottom: 1%;
+    width: 90%;
+    gap: 1%;
+    margin: 4% auto;
+
+    input{
+        border: none;
+        width: 80%;
+        padding-left: 1rem;
+        background-color: aliceblue;
+    }
+
+    input:focus{
+        outline: none;
+    }
+
+    img{
+        width: 10%;
+        height: auto;
+    }
+
+}
+
+.user-input:focus-within{
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.form-image{
+    width: 35%;
+    height: auto;
+}
+
+.link-cadastrar{
+    color: black;
+    margin-top: 5%;
+}
+
+.btn-criar-conta{
+    text-decoration: underline black 1.2px;
+    color: darkslateblue;
+    font-weight: bold;
+}

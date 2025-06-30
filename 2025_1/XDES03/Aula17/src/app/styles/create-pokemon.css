@@ -1,0 +1,66 @@
+.create-pokemon-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 3px solid black;
+    width: 50%;
+    margin: 1% auto;
+    height: calc(100vh - 40vh);
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 2rem;
+
+    h2{
+        text-align: center;
+        margin: 2% 0;
+        font-size: 2rem;
+    }
+}
+
+.create-pokemon-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    button{
+        width: 15%;
+        margin: 2% auto;
+        padding: 1.5%;
+        font-size: 1.2rem;
+        border-radius: 1rem;
+        color: rgb(255, 255, 255);
+        background-color: rgb(22, 170, 255);
+        transition: transform .5s;
+    }
+
+    button:hover{
+        transform: scale(1.05);
+    }
+
+
+}
+
+.pokemon-input{
+    display: flex;
+    border-bottom: 1px solid gray;
+    padding-bottom: 1%;
+    width: 90%;
+    gap: 1%;
+    margin: 4% auto;
+
+    input{
+        border: none;
+        width: 80%;
+        padding-left: 1rem;
+        background-color: white;
+    }
+
+    input:focus{
+        outline: none;
+    }
+
+}
+
+.pokemon-input:focus-within{
+    border-bottom: 3px solid black;
+}
