@@ -1,3 +1,6 @@
+# 2023004480
+# 2023006401
+
 class noh:
 	def __init__(self, fileName_="None"):
 		#Todo noh corresponde a um arquivo no disco
@@ -18,12 +21,16 @@ class noh:
 		f = open(nome_arquivo, "r")
 		i = 0
 		for linha in f:
-			pass # TODO
-			###########################################
+			if i % 2 == 0:
+				if linha.strip('\n') != 'None':
+					self.filhos.append(noh(linha.strip('\n')))
+			else:
+				self.chaves.append(int(linha))
 			
-			#         COMPLETAR ESSA FUNCAO           #
-
-			###########################################
+			if i == 4:
+				if len(self.filhos) != 0:
+					self.folha = False
+			i += 1
 
 
 
