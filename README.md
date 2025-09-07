@@ -1,7 +1,5 @@
 ## UNIFEI
 
-Repositório criado com o intuito de armazenar e compartilhar os exercícios que desenvolverei durante o curso de Sistemas de Informação na UNIFEI.
+Repositório criado com o intuito de armazenar e compartilhar para estudos os exercícios que desenvolverei durante o curso de graduação em Sistemas de Informação na UNIFEI.
 
-Aqui estarão apenas os códigos em C escritos por mim, sem o enunciado das questões.
-
-> Para compilar os arquivos em C, é possível executar `gcc @compile.args file.c`.
+Aqui estarão apenas os códigos escritos por mim durante os exercícios, provas, trabalhos e etc, sem o enunciado das questões. As vezes terão alguns exemplos fornecidos pelos professores.
