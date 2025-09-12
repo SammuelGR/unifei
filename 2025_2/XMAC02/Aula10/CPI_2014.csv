@@ -1,0 +1,176 @@
+Rank,Country,CPI_2014,Continent
+1,Denmark,92,Europe
+2,New Zealand,91,Oceania
+3,Finland,89,Europe
+4,Sweden,87,Europe
+5,Norway,86,Europe
+5,Switzerland,86,Europe
+7,Singapore,84,Asia
+8,Netherlands,83,Europe
+9,Luxembourg,82,Europe
+10,Canada,81,North America
+11,Australia,80,Oceania
+12,Germany,79,Europe
+12,Iceland,79,Europe
+14,United Kingdom,78,Europe
+15,Belgium,76,Europe
+15,Japan,76,Asia
+17,Barbados,74,North America
+17,Hong Kong,74,Asia
+17,Ireland,74,Europe
+17,United States,74,North America
+21,Chile,73,South America
+21,Uruguay,73,South America
+23,Austria,72,Europe
+24,Bahamas,71,North America
+25,United Arab Emirates,70,Asia
+26,Estonia,69,Europe
+26,France,69,Europe
+26,Qatar,69,Asia
+29,Saint Vincent and the Grenadines,67,North America
+30,Bhutan,65,Asia
+31,Botswana,63,Africa
+31,Cyprus,63,Europe
+31,Portugal,63,Europe
+31,Puerto Rico,63,North America
+35,Poland,61,Europe
+35,Taiwan,61,Asia
+37,Israel,60,Asia
+37,Spain,60,Europe
+39,Dominica,58,North America
+39,Lithuania,58,Europe
+39,Slovenia,58,Europe
+42,Cape Verde,57,Africa
+43,Korea (South),55,Asia
+43,Latvia,55,Europe
+43,Malta,55,Europe
+43,Seychelles,55,Africa
+47,Costa Rica,54,North America
+47,Hungary,54,Europe
+47,Mauritius,54,Africa
+50,Georgia,52,Europe
+50,Malaysia,52,Asia
+50,Samoa,52,Oceania
+53,Czech Republic,51,Europe
+54,Slovakia,50,Europe
+55,Bahrain,49,Asia
+55,Jordan,49,Asia
+55,Lesotho,49,Africa
+55,Namibia,49,Africa
+55,Rwanda,49,Africa
+55,Saudi Arabia,49,Asia
+61,Croatia,48,Europe
+61,Ghana,48,Africa
+63,Cuba,46,North America
+64,Oman,45,Asia
+64,The FYR of Macedonia,45,Europe
+64,Turkey,45,Asia
+67,Kuwait,44,Asia
+67,South Africa,44,Africa
+69,Brazil,43,South America
+69,Bulgaria,43,Europe
+69,Greece,43,Europe
+69,Italy,43,Europe
+69,Romania,43,Europe
+69,Senegal,43,Africa
+69,Swaziland,43,Africa
+76,Montenegro,42,Europe
+76,Sao Tome and Principe,42,Africa
+78,Serbia,41,Europe
+79,Tunisia,40,Africa
+80,Benin,39,Africa
+80,Bosnia and Herzegovina,39,Europe
+80,El Salvador,39,North America
+80,Mongolia,39,Asia
+80,Morocco,39,Africa
+85,Burkina Faso,38,Africa
+85,India,38,Asia
+85,Jamaica,38,North America
+85,Peru,38,South America
+85,Philippines,38,Asia
+85,Sri Lanka,38,Asia
+85,Thailand,38,Asia
+85,Trinidad and Tobago,38,North America
+85,Zambia,38,Africa
+94,Armenia,37,Europe
+94,Colombia,37,South America
+94,Egypt,37,Africa
+94,Gabon,37,Africa
+94,Liberia,37,Africa
+94,Panama,37,North America
+100,Algeria,36,Africa
+100,China,36,Asia
+100,Suriname,36,South America
+103,Bolivia,35,South America
+103,Mexico,35,North America
+103,Moldova,35,Europe
+103,Niger,35,Africa
+107,Argentina,34,South America
+107,Djibouti,34,Africa
+107,Indonesia,34,Asia
+110,Albania,33,Europe
+110,Ecuador,33,South America
+110,Ethiopia,33,Africa
+110,Kosovo,33,Europe
+110,Malawi,33,Africa
+115,Côte d´Ivoire,32,Africa
+115,Dominican Republic,32,North America
+115,Guatemala,32,North America
+115,Mali,32,Africa
+119,Belarus,31,Europe
+119,Mozambique,31,Africa
+119,Sierra Leone,31,Africa
+119,Tanzania,31,Africa
+119,Vietnam,31,Asia
+124,Guyana,30,South America
+124,Mauritania,30,Africa
+126,Azerbaijan,29,Asia
+126,Gambia,29,Africa
+126,Honduras,29,North America
+126,Kazakhstan,29,Asia
+126,Nepal,29,Asia
+126,Pakistan,29,Asia
+126,Togo,29,Africa
+133,Madagascar,28,Africa
+133,Nicaragua,28,North America
+133,Timor-Leste,28,Asia
+136,Cameroon,27,Africa
+136,Iran,27,Asia
+136,Kyrgyzstan,27,Asia
+136,Lebanon,27,Asia
+136,Nigeria,27,Africa
+136,Russia,27,Asia
+142,Comoros,26,Africa
+142,Uganda,26,Africa
+142,Ukraine,26,Europe
+145,Bangladesh,25,Asia
+145,Guinea,25,Africa
+145,Kenya,25,Africa
+145,Laos,25,Asia
+145,Papua New Guinea,25,Oceania
+150,Central African Republic,24,Africa
+150,Paraguay,24,South America
+152,Congo Republic,23,Africa
+152,Tajikistan,23,Asia
+154,Chad,22,Africa
+154,Democratic Republic of the Congo,22,Africa
+156,Cambodia,21,Asia
+156,Myanmar,21,Asia
+156,Zimbabwe,21,Africa
+159,Burundi,20,Africa
+159,Syria,20,Asia
+161,Angola,19,Africa
+161,Guinea-Bissau,19,Africa
+161,Haiti,19,North America
+161,Venezuela,19,South America
+161,Yemen,19,Asia
+166,Eritrea,18,Africa
+166,Libya,18,Africa
+166,Uzbekistan,18,Asia
+169,Turkmenistan,17,Asia
+170,Iraq,16,Asia
+171,South Sudan,15,Africa
+172,Afghanistan,12,Asia
+173,Sudan,11,Africa
+174,Korea (North),8,Asia
+174,Somalia,8,Africa
