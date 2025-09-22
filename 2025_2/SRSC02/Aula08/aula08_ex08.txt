@@ -1,0 +1,13 @@
+A ordem de execução não é garantida!
+
+Thread 1: Lê saldo R$ 1000
+Thread 2: Lê saldo R$ 1000
+Thread 2: Deposita R$ 300
+Thread 1: Deposita R$ 200
+Thread 1: Atualiza saldo R$ 1000 + R$ 200 implica Saldo = R$ 1200
+Thread 2: Atualiza saldo R$ 1000 + R$ 300 implica Saldo = R$ 1300
+Saldo final R$ 1300
+
+Na realidade deveriam ser realizados dois depósitos, um de R$ 200 que
+deveria ser realizada pelo Thread 1 e outro de R$ 300 que deveria ser
+realizada pelo Thread 2, totalizando um saldo final de R$ 1500.

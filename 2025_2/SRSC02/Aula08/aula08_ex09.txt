@@ -1,0 +1,25 @@
+Sincronização com MUTEX
+
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr)
+int pthread_mutex_lock(pthread_mutex_t *mutex)
+int pthread_mutex_unlock(pthread_mutex_t *mutex)
+int pthread_mutex_destroy(pthread_mutex_t *mutex)
+
+Sincronização com SEMÁFOROS
+
+int sem_init(sem_t *sem, int pshared, unsigned int value)
+int sem_wait(sem_t *sem)
+int sem_post(sem_t *sem)
+int sem_destroy(sem_t *sem)
+
+Sincronização com CONDITIONS
+
+int pthread_cond_init(pthread_cond_t *cond, const pthread_condattr_t *attr)
+int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *mutex)
+int pthread_cond_signal(pthread_cond_t *cond)
+
+Sites com Tutoriais de PThreads
+
+https://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/tlib-1/index.html
+https://pubs.opengroup.org/onlinepubs/7990989775/xsh/pthread.h.html
+https://randu.org/tutorials/threads/
