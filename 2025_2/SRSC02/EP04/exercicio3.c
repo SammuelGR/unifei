@@ -3,16 +3,13 @@
  *
  * Created on: 29 de set de 2025
  *
- * Authors:
- * Sammuel - matricula
- *
  * Calcula pi atraves de paralelismo com OpenMP
  */
 
 #include <stdio.h>
 #include <omp.h>
 
-#define NUM_THREADS 12
+#define NUM_THREADS 8
 
 static long num_steps = 1000000;
 double step;
@@ -30,7 +27,7 @@ int main(void) {
         double current_sum = 0.0, x;
 
         long j;
-        long step_size = (num_steps / NUM_THREADS);
+        long step_size = (num_steps / NUM_THREADS); // Tamanho do intervalo de cada thread
         long start_interval = tid * step_size;
         long end_interval = (tid == NUM_THREADS - 1) ? num_steps : start_interval + step_size;
 
@@ -47,6 +44,7 @@ int main(void) {
 
     pi = step * total_sum;
 
+    printf("Qtd threads: %d\n", NUM_THREADS);
     printf("%lf\n", pi);
 
     return 0;

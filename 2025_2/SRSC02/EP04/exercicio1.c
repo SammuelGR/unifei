@@ -3,8 +3,6 @@
  *
  * Created on: 29 de set de 2025
  *
- * Authors:
- * Sammuel - matricula
  *
  * Aproxima pi pela soma de retangulos: integral 0..1 de 4/(1+x^2) dx
  * Divide a soma em 'n' partes entre 'T' threads
@@ -45,7 +43,7 @@ int main(void) {
     double soma_total = 0.0;
     double pi = 0;
 
-    // propaga para a variavel global usada pelas threads 
+    // propaga para a variavel global usada pelas threads
     largura_retangulo = 1.0 / (double)QTD_RETANGULOS;
 
     pthread_t threads[QTD_THREADS];
@@ -64,7 +62,8 @@ int main(void) {
         soma_total += somas_parciais[i];
 
     pi = largura_retangulo * soma_total;
-    printf("pi = %.12f\n", pi);
+    printf("pi = %f\n", pi);
 
+    printf("Qtd threads: %d\n", QTD_THREADS);
     return 0;
 }

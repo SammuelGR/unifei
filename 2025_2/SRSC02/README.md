@@ -21,3 +21,5 @@ comp_omp() {
 Exemplo de uso:
 
 `comp file.c` gera o arquivo output.exe
+
+https://formulae.brew.sh/formula/libomp
