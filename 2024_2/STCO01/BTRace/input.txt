@@ -1,0 +1,13 @@
+2;A corrida eterna começa! Você está na sua Bros 160 vermelha e branca, lado a lado com um Lancer cinza. A primeira curva fechada se aproxima. O que você faz?
+  1;Mergulhar por dentro, raspando a pedaleira no asfalto.
+    2;Você executa a manobra com perfeição e sai da curva na frente! Agora, uma longa reta se abre e o Lancer cola na sua traseira, pronto para dar o bote.
+      1;Deita encima da moto na posição "Superman" diminuindo o arrasto aerodinamico na tentativa de ganhar velocidade.
+        0;A física concordar, e a atitude intimida! O Lancer hesita e você ganha distância, vencendo a corrida!
+      1;Manter a linha e se defender na próxima curva.
+        0;Foi um erro! O motor 2.0 do Lancer e o câmbio CVT fala mais alto na reta. Ele te ultrapassa e você fica comendo poeira pela eternidade. Fim de jogo.
+  1;Frear um pouco antes e esperar uma oportunidade mais segura.
+    2;O Lancer aproveita sua cautela e abre vantagem. Para piorar, ele pega um atalho por uma estrada de terra batida!
+      1;A Bros é uma moto trail! Ir para a terra é o seu habitat natural!
+        0;Você corta caminho pela terra com maestria, levanta uma nuvem de poeira que impede a visão do motorista do Lancer, que capota inúmeras vezes. Vitória!
+      1;Ficar no asfalto, o caminho seguro.
+        0;O atalho era muito mais eficiente. O Lancer some na sua frente e você perde a corrida. Fim de jogo.
