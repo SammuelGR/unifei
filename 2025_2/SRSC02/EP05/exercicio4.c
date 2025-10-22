@@ -6,17 +6,17 @@
  * Authors:
  * MAT - NOME
  *
- * Cria um processo filho atraves de fork, e tenta alterar sua prioridade 
+ * Cria um processo filho atraves de fork, e tenta alterar sua prioridade
  * atraves do pai.
  */
 
- #include <errno.h>
- #include <stdio.h>
- #include <stdlib.h>
- #include <sys/resource.h>
- #include <sys/types.h>
- #include <sys/wait.h>
- #include <unistd.h>
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/resource.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
 int main(int argc, char **argv) {
     int ret, prioridade;
@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
     if (pipe(pfd) == -1)
         exit(1);
 
-    child_pid = fork(); 
+    child_pid = fork();
 
     if (child_pid < 0) {
         exit(2);
@@ -63,6 +63,8 @@ int main(int argc, char **argv) {
         printf("[PAI]: Alterando prioridade do filho...\n");
 
         ret = setpriority(PRIO_PROCESS, child_pid, 12);
+
+        sleep(1);
 
         if (ret == -1) {
             fprintf(stderr, "setpriority() falhou...\n");
