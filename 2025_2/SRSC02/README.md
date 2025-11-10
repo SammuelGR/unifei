@@ -14,6 +14,10 @@ comp_t() {
 comp_omp() {
   gcc -o output.exe -Wall -Werror -pedantic -std=c18 -fopenmp "$@"
 }
+
+compcpp () {
+    g++ -o output.exe -Wall -Werror -pedantic -std=c++17 "$@"
+}
 ```
 
 > Usar a flag `-lpthread` caso esteja incluindo a biblioteca `pthread.h`.

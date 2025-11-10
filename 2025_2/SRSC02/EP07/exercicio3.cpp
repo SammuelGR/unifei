@@ -1,0 +1,71 @@
+/*
+ * exercicio3.c
+ *
+ * Created on: 10 de nov de 2025
+ *
+ * Authors:
+ *
+ * Le o arquivo binário gerado no exercicio 1 (EP07Dados.bin) e cria um arquivo
+ * de texto ordenado por matricula com o indice de cada aluno.
+ *
+ */
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define BIN_FILENAME "EP07Dados.bin"
+#define OUT_FILENAME "EP07IndiceMatricula.txt"
+
+typedef struct {
+    int matricula;
+    char nome[50];
+    char flag;
+    float prova1, prova2;
+    float notas[8];
+} Aluno;
+
+typedef struct {
+    int matricula;
+    int indice;
+} MatriculaIndice;
+
+bool comparaMatricula(const MatriculaIndice &a, const MatriculaIndice &b) {
+    return a.matricula < b.matricula;
+}
+
+int main(void) {
+    FILE *dadosBin, *saida;
+
+    dadosBin = fopen(BIN_FILENAME, "rb");
+
+    vector<MatriculaIndice> indices;
+    Aluno aluno;
+    int i = 0;
+
+    if (dadosBin == NULL) exit(1);
+
+    while (fread(&aluno, sizeof(Aluno), 1, dadosBin) == 1) {
+        MatriculaIndice n;
+        n.matricula = aluno.matricula;
+        n.indice = i;
+        indices.push_back(n);
+        i++;
+    }
+
+    fclose(dadosBin);
+
+    sort(indices.begin(), indices.end(), comparaMatricula);
+
+    saida = fopen(OUT_FILENAME, "w");
+
+    if (saida == NULL) exit(1);
+
+    for (int i = 0; i < (int)indices.size(); i++) {
+        fprintf(saida, "%d %d\n", indices[i].matricula, indices[i].indice);
+    }
+
+    fclose(saida);
+
+    return 0;
+}
