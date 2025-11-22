@@ -28,6 +28,7 @@ typedef struct {
     float notas[8];
 } Aluno;
 
+
 void incluirAluno() {
     FILE *f = fopen(BIN_FILENAME, "ab");
     if (f == NULL) exit(1);
@@ -35,11 +36,12 @@ void incluirAluno() {
     Aluno a;
     memset(&a, 0, sizeof(Aluno));
 
-    cout << "Matrícula: ";
+    cout << "Matricula: ";
     cin >> a.matricula;
     cin.ignore();
     cout << "Nome: ";
-    cin.getline(a.nome, sizeof(a.nome));
+    fgets(a.nome, 50, stdin);
+    a.nome[strcspn(a.nome, "\n")] = 0;
 
     a.flag = 'N';
     a.prova1 = 0;
@@ -49,7 +51,10 @@ void incluirAluno() {
     fwrite(&a, sizeof(Aluno), 1, f);
     fclose(f);
 
-    cout << "Aluno incluído com sucesso!\n";
+    system("./exercicio2.exe");
+    system("./exercicio3.exe");
+
+    cout << "Aluno incluido com sucesso!\n";
 }
 
 void alterarAluno() {
@@ -61,14 +66,15 @@ void alterarAluno() {
     while (fread(&a, sizeof(Aluno), 1, f) == 1) alunos.push_back(a);
 
     int opcao;
-    cout << "Buscar por: 1-Matrícula | 2-Nome: ";
+    int idx = -1;
+
+    cout << "Buscar por: 1-Matricula | 2-Nome: ";
     cin >> opcao;
     cin.ignore();
 
-    int idx = -1;
     if (opcao == 1) {
         int mat;
-        cout << "Matrícula: ";
+        cout << "Matricula: ";
         cin >> mat;
         for (int i = 0; i < (int)alunos.size(); i++)
             if (alunos[i].matricula == mat) idx = i;
@@ -81,12 +87,12 @@ void alterarAluno() {
     }
 
     if (idx == -1) {
-        cout << "Aluno não encontrado.\n";
+        cout << "Aluno nao encontrado.\n";
         fclose(f);
         return;
     }
 
-    cout << "Alterando dados de " << alunos[idx].nome << "...\n";
+    cout << "Alterando dados de " << alunos[idx].nome << endl;
     cout << "1 - Prova 1\n2 - Prova 2\n3 - Flag (N/D/T)\n";
     int op;
     cin >> op;
@@ -98,6 +104,9 @@ void alterarAluno() {
     fseek(f, idx * sizeof(Aluno), SEEK_SET);
     fwrite(&alunos[idx], sizeof(Aluno), 1, f);
     fclose(f);
+
+    system("./exercicio2.exe");
+    system("./exercicio3.exe");
 
     cout << "Dados atualizados.\n";
 }
@@ -138,7 +147,7 @@ void imprimir() {
 int main(void) {
     int op;
     do {
-        cout << "\n1 - Incluir aluno\n2 - Alterar aluno\n3 - Imprimir alunos\n0 - Sair\nOpção: ";
+        cout << "\n1 - Incluir aluno\n2 - Alterar aluno\n3 - Imprimir alunos\n0 - Sair\nOpcao: ";
         cin >> op;
         cin.ignore();
 

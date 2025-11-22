@@ -62,7 +62,7 @@ int main(void) {
     if (saida == NULL) exit(1);
 
     for (int i = 0; i < (int)indices.size(); i++) {
-        fprintf(saida, "%s %d\n", indices[i].nome.c_str(), indices[i].indice);
+        fprintf(saida, "%d - %s\n", indices[i].indice, indices[i].nome.c_str());
     }
 
     fclose(saida);

@@ -19,13 +19,14 @@ using namespace std;
 #define TXT_EOF "-1 FIM"
 #define BUFFER_SIZE 256
 #define NOTAS_SIZE 8
+#define NOME_SIZE 50
 
 typedef struct {
     int matricula;
-    char nome[50];
+    char nome[NOME_SIZE];
     char flag;
     float prova1, prova2;
-    float notas[8];
+    float notas[NOTAS_SIZE];
 } Aluno;
 
 int main(void) {
