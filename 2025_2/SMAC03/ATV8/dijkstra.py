@@ -1,50 +1,48 @@
-from typing import List
 from math import inf
+from typing import List
 
 def dijkstra(adjMatrix: List[List[int]], vOrigin: int, vDest: int):
 	size = len(adjMatrix)
 
-	cost = [inf for _ in range(size)]
-	route = [vOrigin for _ in range(size)]
+	costs = [inf for _ in range(size)]
+	routes = [vOrigin for _ in range(size)]
 
-	cost[vOrigin] = 0
 	openList = list(range(size))
 	closedList = []
 
-	while len(openList) != 0:
-		minCost = cost[openList[0]]
+	costs[vOrigin] = 0
+
+	while len(openList) > 0:
 		v = openList[0]
+		minCost = costs[openList[0]]
 
-		for i in openList:
-			if cost[i] < minCost:
-				minCost = cost[i]
-				v = i
-
-		closedList.append(v)
+		for x in openList:
+			if costs[x] < minCost:
+				minCost = costs[x]
+				v = x
+		
 		openList.remove(v)
-
-		N = []
+		closedList.append(v)
 
 		vRow = adjMatrix[v]
-		for i in range(size):
-			if vRow[i] > 0 and i not in closedList:
-				N.append(i)
-		
-		for u in N:
+		for u in range(size):
 			weight = vRow[u]
-			if cost[v] + weight < cost[u]:
-				cost[u] = cost[v] + weight
-				route[u] = v
+			if u in closedList or weight <= 0:
+				continue
+
+			if costs[u] > costs[v] + weight:
+				costs[u] = costs[v] + weight
+				routes[u] = v
 
 	path = []
 	x = vDest
 	while x != vOrigin:
 		path.append(x)
-		x = route[x]
-
+		x = routes[x]
 	path.append(vOrigin)
 	path.reverse()
-	print(path, cost[vDest])
+
+	print(path, costs[vDest])
 
 dijkstra([[0, 3, 8, 4, -1, 10],
 		  [ 3, 0, -1, 6, -1, -1],
