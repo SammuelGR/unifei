@@ -213,6 +213,58 @@ ORDER BY
     p.categoria NULLS LAST,
     p.produto NULLS LAST;
 
+--*usando GROUPING SETS**--
+--permite definir quais agregações você deseja gerar
+SELECT
+    p.categoria,
+    p.produto,
+    SUM(f.valor_liquido) AS faturamento_total
+FROM dw.fato_vendas f
+JOIN dw.dim_produto p
+    ON f.sk_produto = p.sk_produto
+GROUP BY GROUPING SETS ( --vai gerar faturamento agregado por categoria e depois por produto
+    p.categoria,
+    p.produto
+)
+ORDER BY
+    p.categoria NULLS LAST,
+    p.produto NULLS LAST;
+
+--**usando o CUBE**--
+SELECT
+    p.categoria,
+    p.produto,
+    SUM(f.valor_liquido) AS faturamento_total
+FROM dw.fato_vendas f
+JOIN dw.dim_produto p
+    ON f.sk_produto = p.sk_produto
+GROUP BY CUBE (
+    p.categoria,
+    p.produto
+)
+ORDER BY
+    p.categoria NULLS LAST,
+    p.produto NULLS LAST;
+
+--Com todas as dimensões do cubo
+SELECT
+    t.ano,
+    p.categoria,
+    fu.cargo,
+    SUM(f.valor_liquido) AS total_vendas
+FROM dw.fato_vendas f
+JOIN dw.dim_tempo t
+    ON f.sk_tempo = t.sk_tempo
+JOIN dw.dim_produto p
+    ON f.sk_produto = p.sk_produto
+JOIN dw.dim_funcionario fu
+    ON f.sk_funcionario = fu.sk_funcionario
+GROUP BY CUBE (
+    t.ano,
+    p.categoria,
+    fu.cargo
+);
+
 --Qual o valor líquido de vendas por ano e por cargo dos funcionários?
 SELECT
     t.ano,
@@ -247,3 +299,65 @@ GROUP BY ROLLUP (
 ORDER BY
     t.ano NULLS LAST,
     f.cargo NULLS LAST;
+
+--**SLICE**--
+--Qual foi o valor líquido das vendas realizadas pelo funcionário Nancy Davolio?
+SELECT
+    t.ano,
+    t.mes,
+    p.produto,
+    SUM(f.valor_liquido) AS valor_liquido
+FROM dw.fato_vendas f
+JOIN dw.dim_tempo t
+    ON f.sk_tempo = t.sk_tempo
+JOIN dw.dim_produto p
+    ON f.sk_produto = p.sk_produto
+JOIN dw.dim_funcionario fu
+    ON f.sk_funcionario = fu.sk_funcionario
+WHERE fu.funcionario = 'Nancy Davolio'
+GROUP BY
+    t.ano,
+    t.mes,
+    p.produto;
+
+--Qual foi o faturamento dos produtos ao longo do ano de 1995?
+SELECT
+    p.produto,
+    fu.funcionario,
+    SUM(f.valor_liquido) AS valor_liquido
+FROM dw.fato_vendas f
+JOIN dw.dim_tempo t
+    ON f.sk_tempo = t.sk_tempo
+JOIN dw.dim_produto p
+    ON f.sk_produto = p.sk_produto
+JOIN dw.dim_funcionario fu
+    ON f.sk_funcionario = fu.sk_funcionario
+WHERE t.ano = 1995
+GROUP BY
+    p.produto,
+    fu.funcionario;
+
+--**DICE**--
+-- Qual foi o valor líquido das vendas dos produtos da categoria Beverages realizadas por Nancy Davolio e Andrew Fuller durante 1995?
+SELECT
+    p.categoria,
+    fu.funcionario,
+    t.ano,
+    SUM(f.valor_liquido) AS valor_liquido
+FROM dw.fato_vendas f
+JOIN dw.dim_tempo t
+    ON f.sk_tempo = t.sk_tempo
+JOIN dw.dim_produto p
+    ON f.sk_produto = p.sk_produto
+JOIN dw.dim_funcionario fu
+    ON f.sk_funcionario = fu.sk_funcionario
+WHERE p.categoria = 'Beverages'
+  AND fu.funcionario IN (
+      'Nancy Davolio',
+      'Andrew Fuller'
+  )
+  AND t.ano = 1995
+GROUP BY
+    p.categoria,
+    fu.funcionario,
+    t.ano;
