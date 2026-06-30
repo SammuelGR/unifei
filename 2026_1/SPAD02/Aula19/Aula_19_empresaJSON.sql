@@ -50,7 +50,9 @@ UPDATE empresaJSON.funcionario SET dados = dados - 'dependentes' WHERE nome = 'P
 -- operador @? verifica se o caminho especificado retorna algum item.
 -- operador @@ avalia o resultado de um predicado booleano definido no final do path.
 -- ? (@.valor < 500): O ponto de interrogação inicia um filtro de item.
-SELECT * FROM empresaJSON.funcionario WHERE dados@? '$.historico_salarial[*] ? (@.valor < 500)';
+SELECT * FROM empresaJSON.funcionario WHERE dados @? '$.historico_salarial[*] ? (@.valor < 500)';
+SELECT * FROM empresajson.funcionario where dados @? '$.cargo.nome[*] ? (@ == "Desenvolvedor Junior")';
+SELECT * FROM empresajson.funcionario where dados @? '$.dependentes.nome ? (@ == "Ana Silva")';
 
 
 --Funcionários que tenham tido o último ajuste salarial em 2026
