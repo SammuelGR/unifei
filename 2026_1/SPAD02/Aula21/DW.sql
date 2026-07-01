@@ -184,6 +184,12 @@ GROUP BY ROLLUP (t.ano, t.mes)
 ORDER BY
     t.ano NULLS LAST, --coloca os NULL no final
     t.mes NULLS LAST;
+-- ou
+SELECT t.ano, t.mes, SUM(f.valor_liquido)
+FROM dw.fato_vendas f
+JOIN dw.dim_tempo t ON f.sk_tempo = t.sk_tempo
+GROUP BY ROLLUP(t.ano, t.mes)
+ORDER BY 1, 2 NULLS LAST;
 
 --Qual foi o faturamento total por categoria de produto?
 SELECT
@@ -212,6 +218,12 @@ GROUP BY ROLLUP (
 ORDER BY
     p.categoria NULLS LAST,
     p.produto NULLS LAST;
+-- ou
+SELECT p.categoria, p.produto, SUM(f.valor_liquido) AS faturamento
+FROM dw.fato_vendas f
+JOIN dw.dim_produto p ON f.sk_produto = p.sk_produto
+GROUP BY ROLLUP(p.categoria, p.produto)
+ORDER BY 1, 2 NULLS LAST;
 
 --*usando GROUPING SETS**--
 --permite definir quais agregações você deseja gerar
@@ -300,6 +312,35 @@ ORDER BY
     t.ano NULLS LAST,
     f.cargo NULLS LAST;
 
+-- Determine a quantidade vendida por funcionário, incluindo os subtotais
+-- por cargo e o total geral.
+SELECT f.cargo, f.funcionario, SUM(v.quantidade_vendida)
+FROM dw.fato_vendas v
+JOIN dw.dim_funcionario f ON v.sk_funcionario = f.sk_funcionario
+GROUP BY ROLLUP(f.cargo, f.funcionario)
+ORDER BY 1, 2 NULLS LAST;
+
+-- Gere todas as combinações possíveis de agregação entre ano e categoria.
+-- 💩💩💩💩 venda liquida??? 💩💩💩💩
+SELECT t.ano, p.categoria, SUM(v.valor_liquido)
+FROM dw.fato_vendas v
+	JOIN dw.dim_tempo t ON v.sk_tempo = t.sk_tempo
+	JOIN dw.dim_produto p ON v.sk_produto = p.sk_produto
+GROUP BY CUBE(t.ano, p.categoria)
+ORDER BY 1, 2;
+
+-- Produza em uma única consulta:
+-- 👉 vendas por ano;
+-- 👉 vendas por categoria;
+-- 👉 vendas por cargo.
+SELECT t.ano, p.categoria, f.cargo, SUM(v.valor_liquido)
+FROM dw.fato_vendas v
+	JOIN dw.dim_tempo t ON v.sk_tempo = t.sk_tempo
+	JOIN dw.dim_produto p ON v.sk_produto = p.sk_produto
+	JOIN dw.dim_funcionario f ON v.sk_funcionario = f.sk_funcionario
+GROUP BY GROUPING SETS(1, 2, 3)
+ORDER BY 1, 2, 3;
+
 --**SLICE**--
 --Qual foi o valor líquido das vendas realizadas pelo funcionário Nancy Davolio?
 SELECT
@@ -361,3 +402,41 @@ GROUP BY
     p.categoria,
     fu.funcionario,
     t.ano;
+
+--💩-💩-💩-💩-💩-💩-💩-💩-💩-💩-💩-💩-💩-💩-💩-💩-💩-💩-💩
+-- Qual foi o valor líquido das vendas por ano e mês?
+-- 👉 Consulta utilizando GROUP BY
+-- 👉 Consulta utilizando ROLLUP
+-- 👉 Compare os resultados
+
+-- qual a diferença entre calcular a soma de valor_liquido por ano e mês usando
+--  group by e rollup? 💩-💩-💩 traduzido por megabrain modo turbo
+SELECT t.ano, t.mes, SUM(v.valor_liquido)
+FROM dw.fato_vendas v
+	JOIN dw.dim_tempo t ON v.sk_tempo = t.sk_tempo
+GROUP BY 1, 2 -- 👈 GROUP BY 😱
+ORDER BY 1, 2;
+
+SELECT t.ano, t.mes, SUM(v.valor_liquido)
+FROM dw.fato_vendas v
+	JOIN dw.dim_tempo t ON v.sk_tempo = t.sk_tempo
+GROUP BY ROLLUP(1, 2) -- 👈 ROLLUP 🙀
+ORDER BY 1, 2;
+
+-- Deseja-se analisar as vendas por ano e categoria.
+-- 👉 Consulta utilizando GROUP SETS
+-- 👉 Consulta utilizando CUBE
+-- 👉 Compare a quantidade de agrupamentos gerados
+SELECT t.ano, p.categoria, SUM(v.valor_liquido)
+FROM dw.fato_vendas v
+	JOIN dw.dim_tempo t ON v.sk_tempo = t.sk_tempo
+	JOIN dw.dim_produto p ON v.sk_produto = p.sk_produto
+GROUP BY GROUPING SETS (1, 2) -- 👈 GROUPING SETS 🚨
+ORDER BY 1, 2;
+
+SELECT t.ano, p.categoria, SUM(v.valor_liquido)
+FROM dw.fato_vendas v
+	JOIN dw.dim_tempo t ON v.sk_tempo = t.sk_tempo
+	JOIN dw.dim_produto p ON v.sk_produto = p.sk_produto
+GROUP BY CUBE (1, 2) -- 👈 CUBE ⚠️
+ORDER BY 1, 2;
