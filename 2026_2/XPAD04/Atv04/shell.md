@@ -113,3 +113,70 @@ db.orders.aggregate([
 
 db.orders.countDocuments();
 ```
+
+j)
+
+```js
+db.orders.aggregate([
+  {
+    $group: { _id: "$customer.company", count: { $count: {} } },
+  },
+  {
+    $bucket: {
+      groupBy: "$count",
+      boundaries: [2, 4, 6],
+      default: ">=6",
+    },
+  },
+]);
+```
+
+k)
+
+```js
+db.orders.aggregate([
+  {
+    $project: {
+      _id: 0,
+      order_date: 1,
+      shipped_date: 1,
+      pedido: "$_id",
+      cliente: "$customer.company",
+      situacao_envio: {
+        $cond: {
+          if: { $eq: ["$shipped_date", null] },
+          then: "Pendente",
+          else: "Enviado",
+        },
+      },
+    },
+  },
+]);
+```
+
+Questão 2
+
+```js
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "employees",
+      localField: "employee_id",
+      foreignField: "_id",
+      as: "employee_info",
+    },
+  },
+  {
+    $project: {
+      _id: 1,
+      order_date: 1,
+      id_cliente: "$customer_id",
+      nome_funcionario: {
+        $concat: [{ $first: "$employee_info.first_name" }, " ", { $first: "$employee_info.last_name" }],
+      },
+      cargo_funcionario: { $first: "$employee_info.job_title" },
+    },
+  },
+  { $sort: { order_date: 1 } },
+]);
+```
