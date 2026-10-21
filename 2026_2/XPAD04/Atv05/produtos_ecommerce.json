@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "650000000000000000000101",
+    "nome": "Smartphone Galaxy S24 Ultra",
+    "categorias": ["celulares", "smartphones", "samsung", "tecnologia"],
+    "descricao": "Celular avançado com câmera de alta resolução, caneta S-Pen integrada e processador otimizado para inteligência artificial."
+  },
+  {
+    "_id": "650000000000000000000102",
+    "nome": "Notebook Gamer Acer Nitro",
+    "categorias": ["notebooks", "gamer", "hardware", "computadores"],
+    "descricao": "Notebook gamer de alto desempenho equipado com placa de vídeo dedicada, ideal para jogos pesados e renderização de vídeo."
+  },
+  {
+    "_id": "650000000000000000000103",
+    "nome": "Smartphone Motorola Moto G56 5G",
+    "categorias": ["celulares", "smartphones", "motorola", "5g"],
+    "descricao": "Smartphone intermediário com conectividade 5G rápida, bateria de longa duração e tela de alta taxa de atualização."
+  },
+  {
+    "_id": "650000000000000000000104",
+    "nome": "Fone de Ouvido Bluetooth Noise Cancelling",
+    "categorias": ["audio", "fones", "sem fio", "acessorios"],
+    "descricao": "Fone de ouvido sem fio com cancelamento ativo de ruído, som de alta fidelidade e microfone integrado para chamadas."
+  },
+  {
+    "_id": "650000000000000000000105",
+    "nome": "Smartwatch Sport Monitor Cardíaco",
+    "categorias": ["wearables", "relogios", "saude", "esporte"],
+    "descricao": "Relógio inteligente voltado para monitoramento de saúde, rastreamento de treinos físicos, medição de oxigênio e passos."
+  },
+  {
+    "_id": "650000000000000000000106",
+    "nome": "Capa Protetora Transparente para Smartphone",
+    "categorias": ["acessorios", "capas", "protecao", "celulares"],
+    "descricao": "Capa de silicone reforçada anti-impacto, transparente e com proteção para câmeras traseiras contra quedas."
+  },
+  {
+    "_id": "650000000000000000000107",
+    "nome": "Teclado Mecânico RGB Switch Blue",
+    "categorias": ["perifericos", "teclados", "gamer", "hardware"],
+    "descricao": "Teclado mecânico para jogos com iluminação RGB customizável, switches de resposta tátil rápida e construção em alumínio."
+  },
+  {
+    "_id": "650000000000000000000108",
+    "nome": "Monitor UltraWide 29 Polegadas Full HD",
+    "categorias": ["monitores", "perifericos", "displays", "escritorio"],
+    "descricao": "Monitor para produtividade e multitarefas, com tela ultrawide, painel IPS e recursos para redução de cansaço visual."
+  },
+  {
+    "_id": "650000000000000000000109",
+    "nome": "Processador Octa-Core de Última Geração",
+    "categorias": ["hardware", "componentes", "processadores", "pc"],
+    "descricao": "Componente para montagem de computador desktop com alta capacidade de processamento, consumo energético eficiente e suporte a overclock."
+  },
+  {
+    "_id": "650000000000000000000110",
+    "nome": "Câmera de Segurança Inteligente Wi-Fi",
+    "categorias": ["casa inteligente", "seguranca", "iot", "cameras"],
+    "descricao": "Câmera IP Wi-Fi para monitoramento residencial, visão noturna infravermelha, detecção de movimento e controle via aplicativo."
+  }
+]
